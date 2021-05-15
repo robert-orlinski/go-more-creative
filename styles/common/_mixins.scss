@@ -1,0 +1,39 @@
+$breakpoints: (
+  'phoneS': 350px,
+  'phoneM': 420px,
+  'phoneL': 576px,
+  'tablet': 768px,
+  'tabletL': 992px,
+  'laptop': 1200px,
+  'laptopL': 1441px,
+  'desktop': 1620px,
+);
+
+@mixin mq($width, $type: max) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+
+    @if $type==max {
+      $width: $width - 1px;
+    }
+
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+@mixin no_appearance {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+@mixin empty_pseudo_element($position: absolute) {
+  content: '';
+  position: $position;
+}
+
+@mixin full_size($unit: 0%) {
+  width: 100 + $unit;
+  height: 100 + $unit;
+}

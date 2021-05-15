@@ -1,0 +1,67 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-weight: 700;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+}
+
+*::selection {
+  background-color: var(--purple);
+  color: #fff;
+
+  -webkit-text-fill-color: initial;
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  touch-action: manipulation;
+
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+}
+
+input,
+textarea {
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: #fff;
+
+  &::placeholder {
+    color: var(--dark-gray);
+  }
+}
+
+input,
+textarea,
+select {
+  @include no_appearance;
+  min-width: 0;
+}
+
+a {
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+    color: inherit;
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--purple);
+  }
+}

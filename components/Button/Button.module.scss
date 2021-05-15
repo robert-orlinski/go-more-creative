@@ -1,0 +1,42 @@
+@import '/styles/common/mixins';
+
+.button {
+  --button-space: 6px;
+
+  position: relative;
+  padding: calc(var(--button-space) * 2) calc(var(--button-space) * 6);
+
+  &::before,
+  &::after {
+    @include empty_pseudo_element;
+    @include full_size;
+
+    z-index: -1;
+
+    transition: transform var(--transition-duration-min);
+  }
+
+  &::before {
+    top: var(--button-space);
+    right: var(--button-space);
+
+    background-color: var(--purple-transparent-med);
+  }
+
+  &::after {
+    top: 0;
+    left: 0;
+
+    border: 2px solid #000;
+  }
+
+  &:hover {
+    &::before {
+      transform: translate(var(--button-space), calc(var(--button-space) * -1));
+    }
+
+    &::after {
+      transform: translate(calc(var(--button-space) * -1), var(--button-space));
+    }
+  }
+}
