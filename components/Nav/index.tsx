@@ -15,8 +15,8 @@ export const Nav = () => {
     <nav className={styles.nav}>
       <Brand />
       <div className="flex alignCenter">
-        <Points className="visibleOnWiderThanTablet" />
-        <Logout className="visibleOnWiderThanMobile" />
+        <Points visibleOnClassName="visibleOnWiderThanTablet" />
+        <Logout visibleOnClassName="visibleOnWiderThanMobile" />
         <Hamburger
           onClick={() => setMobileMenuVisibility(!isMobileMenuVisible)}
           isActive={isMobileMenuVisible}

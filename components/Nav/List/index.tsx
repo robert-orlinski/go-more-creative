@@ -30,8 +30,8 @@ export const List: FC<NavListType> = ({ isVisible }) => (
       </li>
     </ul>
     <div className={styles.additionals}>
-      <Logout className="visibleOnNarrowerThanMobile" />
-      <Points className="visibleOnNarrowerThanTablet" />
+      <Logout visibleOnClassName="visibleOnNarrowerThanMobile" />
+      <Points visibleOnClassName="visibleOnNarrowerThanTablet" />
     </div>
   </aside>
 );

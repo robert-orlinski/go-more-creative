@@ -6,9 +6,11 @@ import navStyles from '../Nav.module.scss';
 
 import { SelectivelyVisibleElementType } from '../../../types/types';
 
-export const Logout: FC<SelectivelyVisibleElementType> = ({ className }) => (
+export const Logout: FC<SelectivelyVisibleElementType> = ({ visibleOnClassName }) => (
   <Link href="/logout">
-    <a className={classNames('flex alignCenter opacity', navStyles.singleGroup, className)}>
+    <a
+      className={classNames('flex alignCenter opacity', navStyles.singleGroup, visibleOnClassName)}
+    >
       Logout
     </a>
     {/* TODO: language switcher */}

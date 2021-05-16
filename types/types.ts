@@ -13,7 +13,7 @@ export interface HamburgerType {
 }
 
 export interface SelectivelyVisibleElementType {
-  className:
+  visibleOnClassName:
     | 'visibleOnNarrowerThanMobile'
     | 'visibleOnWiderThanMobile'
     | 'visibleOnNarrowerThanTablet'
