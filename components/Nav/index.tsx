@@ -12,17 +12,19 @@ export const Nav = () => {
   const [isMobileMenuVisible, setMobileMenuVisibility] = useState(false);
 
   return (
-    <nav className={styles.nav}>
-      <Brand />
-      <div className="flex alignCenter">
-        <Points visibleOnClassName="visibleOnWiderThanTablet" />
-        <Logout visibleOnClassName="visibleOnWiderThanMobile" />
-        <Hamburger
-          onClick={() => setMobileMenuVisibility(!isMobileMenuVisible)}
-          isActive={isMobileMenuVisible}
-        />
-      </div>
-      <List isVisible={isMobileMenuVisible} />
-    </nav>
+    <header>
+      <nav className={styles.nav}>
+        <Brand />
+        <div className="flex alignCenter">
+          <Points visibleOnClassName="visibleOnWiderThanTablet" />
+          <Logout visibleOnClassName="visibleOnWiderThanMobile" />
+          <Hamburger
+            onClick={() => setMobileMenuVisibility(!isMobileMenuVisible)}
+            isActive={isMobileMenuVisible}
+          />
+        </div>
+        <List isVisible={isMobileMenuVisible} />
+      </nav>
+    </header>
   );
 };

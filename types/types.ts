@@ -4,7 +4,7 @@ export interface ButtonType {
 }
 
 export interface MainWrapperType {
-  theme: 'left' | 'center';
+  theme?: 'center';
 }
 
 export interface HamburgerType {

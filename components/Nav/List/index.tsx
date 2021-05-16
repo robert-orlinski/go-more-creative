@@ -20,12 +20,12 @@ export const List: FC<NavListType> = ({ isVisible }) => (
     <ul className="unstyledList">
       <li className={styles.item}>
         <Link href="/practice">
-          <a>Practice</a>
+          <a>practice</a>
         </Link>
       </li>
       <li className={styles.item}>
         <Link href="/list">
-          <a>Past entries</a>
+          <a>past entries</a>
         </Link>
       </li>
     </ul>

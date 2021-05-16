@@ -11,7 +11,7 @@ export const Logout: FC<SelectivelyVisibleElementType> = ({ visibleOnClassName }
     <a
       className={classNames('flex alignCenter opacity', navStyles.singleGroup, visibleOnClassName)}
     >
-      Logout
+      logout
     </a>
     {/* TODO: language switcher */}
   </Link>
