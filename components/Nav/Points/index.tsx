@@ -9,8 +9,8 @@ import { StarIcon } from './Icons/StarIcon';
 
 import { SelectivelyVisibleElementType } from '../../../types/types';
 
-export const Points: FC<SelectivelyVisibleElementType> = ({ className }) => (
-  <ul className={classNames('flex unstyledList', className)}>
+export const Points: FC<SelectivelyVisibleElementType> = ({ visibleOnClassName }) => (
+  <ul className={classNames('flex unstyledList', visibleOnClassName)}>
     <li className={classNames('flex alignCenter', navStyles.multipleGroup)}>
       <FireIcon />
       <span className={styles.number}>5</span>
