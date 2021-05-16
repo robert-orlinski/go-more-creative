@@ -1,0 +1,5 @@
+@import '/styles/common/mixins';
+
+.brand {
+  height: calc(var(--nav-height) - 2.4rem);
+}

@@ -1,0 +1,55 @@
+@import '/styles/common/mixins';
+
+.hamburger {
+  display: flex;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+
+  isolation: isolate;
+  z-index: var(--max-z-index);
+}
+
+.inner {
+  position: relative;
+  width: 30px;
+
+  &,
+  &::before,
+  &::after {
+    display: block;
+    background-color: #000;
+    height: 2px;
+    transition: transform 200ms ease;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: '';
+    width: 15px;
+  }
+
+  &::before {
+    top: -8px;
+    left: 0;
+  }
+
+  &::after {
+    top: 8px;
+    right: 0;
+  }
+
+  &.active {
+    transform: rotate(-45deg);
+
+    &::before {
+      transform: rotate(90deg) translateY(-8px);
+    }
+
+    &::after {
+      transform: rotate(90deg) translateY(7px);
+    }
+  }
+}

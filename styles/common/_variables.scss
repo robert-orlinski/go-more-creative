@@ -1,8 +1,10 @@
+@import './mixins';
+
 :root {
-  --purple: hsl(262, 47%, 63%);
+  --purple: #bfabe1;
   --light-gray: #ecf0f3;
 
-  --purple-transparent-med: rgb(149, 117, 205, 0.7);
+  --purple-transparent-med: rgb(191, 171, 225, 0.7);
 
   --transition-duration-min: 200ms;
 }

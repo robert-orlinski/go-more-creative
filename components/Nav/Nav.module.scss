@@ -1,8 +1,58 @@
+@import '/styles/common/mixins';
+
 .nav {
+  --nav-height: 4.5rem;
+  --nav-border-width: 3px;
+
+  @include mq(mobileL) {
+    --nav-height: 4.2rem;
+  }
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 1.2rem 2.5rem;
-  border-bottom: 3px solid var(--light-gray);
+  height: var(--nav-height);
+
+  padding: 0 2.5rem;
+  border-bottom: var(--nav-border-width) solid var(--light-gray);
+
+  @include mq(mobileL) {
+    padding: 0 7vw;
+  }
+}
+
+.singleGroup,
+.multipleGroup {
+  margin-right: var(--group-space, 1rem);
+
+  &::after {
+    @include empty_pseudo_element(relative);
+    display: inline-block;
+
+    background-color: #000;
+    margin-left: var(--group-space, 1rem);
+  }
+}
+
+.singleGroup {
+  --group-space: 2rem;
+
+  @include mq(mobileL, min) {
+    &::after {
+      width: 2px;
+      height: 1rem;
+    }
+  }
+
+  @include mq(mobileL) {
+    margin-bottom: var(--group-space);
+  }
+}
+
+.multipleGroup {
+  &::after {
+    width: 30px;
+    height: 2px;
+  }
 }

@@ -1,8 +1,10 @@
-import cn from 'classnames';
-import styles from './MainWrapper.module.scss';
+import { FC } from 'react';
+import classNames from 'classnames';
 
 import { MainWrapperType } from '../../types/types';
 
-export const MainWrapper: React.FC<MainWrapperType> = ({ children, theme }) => (
-  <main className={cn(styles.wrapper, styles[theme])}>{children}</main>
+import styles from './MainWrapper.module.scss';
+
+export const MainWrapper: FC<MainWrapperType> = ({ children, theme }) => (
+  <main className={classNames('wrapper', styles.wrapperWithSpace, theme)}>{children}</main>
 );

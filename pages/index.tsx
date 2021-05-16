@@ -4,14 +4,16 @@ import { Header } from '../components/Header';
 import { MainTitle } from '../components/MainTitle';
 import { MainWrapper } from '../components/MainWrapper';
 import { Button } from '../components/Button';
+import { Footer } from '../components/Footer';
 
 const Start = () => (
   <>
-    <Header></Header>
+    <Header />
     <MainWrapper theme="center">
       <MainTitle>hey! you have 10 ideas to create!</MainTitle>
-      <Button href="/new">let's go!</Button>
+      <Button href="/practice">let's go!</Button>
     </MainWrapper>
+    <Footer />
   </>
 );
 

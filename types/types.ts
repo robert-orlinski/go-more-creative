@@ -4,5 +4,22 @@ export interface ButtonType {
 }
 
 export interface MainWrapperType {
-  theme?: 'center';
+  theme: 'left' | 'center';
+}
+
+export interface HamburgerType {
+  onClick: () => void;
+  isActive: boolean;
+}
+
+export interface SelectivelyVisibleElementType {
+  className:
+    | 'visibleOnNarrowerThanMobile'
+    | 'visibleOnWiderThanMobile'
+    | 'visibleOnNarrowerThanTablet'
+    | 'visibleOnWiderThanTablet';
+}
+
+export interface NavListType {
+  isVisible: boolean;
 }

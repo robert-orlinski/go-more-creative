@@ -1,4 +1,4 @@
-.visually-hidden {
+.visuallyHidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -11,14 +11,76 @@
   white-space: nowrap;
 }
 
+.wrapper {
+  width: min(86%, 950px);
+  margin: 0 auto;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .flex {
   display: flex;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.alignEnd {
+  align-items: flex-end;
 }
 
 .opacity {
   transition: opacity var(--transition-duration-min);
 
   &:hover {
-    opacity: 0.7;
+    opacity: 0.6;
+  }
+
+  &::before {
+    content: none;
+  }
+}
+
+.pointer {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.unstyledList {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.visibleOnNarrowerThanMobile {
+  @include mq(mobileL, min) {
+    display: none;
+  }
+}
+
+.visibleOnWiderThanMobile {
+  @include mq(mobileL) {
+    display: none;
+  }
+}
+
+.visibleOnNarrowerThanTablet {
+  @include mq(tablet, min) {
+    display: none;
+  }
+}
+
+.visibleOnWiderThanTablet {
+  @include mq(tablet) {
+    display: none;
   }
 }

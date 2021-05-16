@@ -1,9 +1,10 @@
+import { FC } from 'react';
 import Link from 'next/link';
-import styles from './button.module.scss';
+import styles from './Button.module.scss';
 
 import { ButtonType } from '../../types/types';
 
-export const Button: React.FC<ButtonType> = ({ children, href, target }) => (
+export const Button: FC<ButtonType> = ({ children, href, target }) => (
   <>
     {target ? (
       <a href={href} target={target} className={styles.button}>
