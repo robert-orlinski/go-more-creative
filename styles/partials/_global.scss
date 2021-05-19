@@ -8,14 +8,19 @@
 }
 
 :root {
-  font-weight: 700;
   font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
 
   @include mq(mobileL) {
     font-size: 15px;
   }
+}
+
+:root,
+button,
+textarea {
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
 }
 
 *::selection {
@@ -44,6 +49,14 @@ html {
   min-height: 100vh;
 }
 
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
 input,
 textarea {
   font-size: 0.8rem;
@@ -63,6 +76,11 @@ select {
   min-width: 0;
 }
 
+fieldset {
+  border: none;
+  padding: 0;
+}
+
 button {
   display: flex;
   @include no_appearance;
@@ -72,7 +90,19 @@ button {
   background-color: transparent;
 }
 
-a {
+button,
+input,
+textarea {
+  font-size: 1rem;
+}
+
+label {
+  display: inline-block;
+  padding-bottom: 0.8rem;
+}
+
+a,
+.highlight {
   position: relative;
 
   color: inherit;
@@ -82,19 +112,21 @@ a {
     @include empty_pseudo_element;
 
     width: 100%;
-    height: 0.4em;
+    height: 0.5em;
 
     z-index: -1;
 
     bottom: 0;
     right: -0.5em;
-    background-color: var(--purple-transparent-med);
+    background-color: var(--purple);
 
     transform-origin: bottom;
     transform: scaleY(1);
     transition: transform var(--transition-duration-min);
   }
+}
 
+a {
   &:hover {
     &::before {
       transform: scaleY(2);

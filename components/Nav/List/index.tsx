@@ -8,7 +8,7 @@ const moduleClasses = classNamesToBind.bind(styles);
 import { Points } from '../Points';
 import { Logout } from '../Logout';
 
-import { NavListType } from '../../../types/types';
+import { NavListType } from './types';
 
 export const List: FC<NavListType> = ({ isVisible }) => (
   <aside

@@ -1,7 +1,7 @@
 @import '/styles/common/mixins';
 
 .nav {
-  --nav-height: 4.5rem;
+  --nav-height: 4.6rem;
   --nav-border-width: 3px;
 
   @include mq(mobileL) {

@@ -7,7 +7,7 @@ import styles from './Points.module.scss';
 import { FireIcon } from './Icons/FireIcon';
 import { StarIcon } from './Icons/StarIcon';
 
-import { SelectivelyVisibleElementType } from '../../../types/types';
+import { SelectivelyVisibleElementType } from '../../../types/global';
 
 export const Points: FC<SelectivelyVisibleElementType> = ({ visibleOnClassName }) => (
   <ul className={classNames('flex unstyledList', visibleOnClassName)}>

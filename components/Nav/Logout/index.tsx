@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 import navStyles from '../Nav.module.scss';
 
-import { SelectivelyVisibleElementType } from '../../../types/types';
+import { SelectivelyVisibleElementType } from '../../../types/global';
 
 export const Logout: FC<SelectivelyVisibleElementType> = ({ visibleOnClassName }) => (
   <Link href="/logout">

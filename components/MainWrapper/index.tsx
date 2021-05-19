@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import classNames from 'classnames';
 
-import { MainWrapperType } from '../../types/types';
+import { MainWrapperType } from './types';
 
 import styles from './MainWrapper.module.scss';
 

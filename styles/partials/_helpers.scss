@@ -12,7 +12,7 @@
 }
 
 .wrapper {
-  width: min(86%, 950px);
+  width: min(86%, 800px);
   margin: 0 auto;
 }
 
@@ -24,6 +24,10 @@
 
 .flex {
   display: flex;
+}
+
+.directionColumn {
+  flex-direction: column;
 }
 
 .alignCenter {
@@ -46,7 +50,7 @@
   }
 }
 
-.pointer {
+.cursorPointer {
   &:hover {
     cursor: pointer;
   }
