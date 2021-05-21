@@ -38,7 +38,7 @@ export const Form = () => {
       {fields.map(({ id, label }) => (
         <Fragment key={`field${id}`}>
           {id === currentIdeaNumber && (
-            <div className={classNames('flex alignCenter directionColumn', styles.field)}>
+            <fieldset className={classNames('flex alignCenter directionColumn', styles.field)}>
               <SingleField id={id} label={label} register={register} errors={errors} />
 
               <Buttons
@@ -47,7 +47,7 @@ export const Form = () => {
                 goToPrevField={goToPrevField}
                 goToNextField={goToNextField}
               />
-            </div>
+            </fieldset>
           )}
         </Fragment>
       ))}
