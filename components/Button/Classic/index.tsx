@@ -5,8 +5,13 @@ import { ButtonType } from '../types';
 
 import styles from '../Button.module.scss';
 
-export const ClassicButton: FC<ButtonType> = ({ children, type, className }) => (
-  <button type={type} className={classNames('cursorPointer', styles.button, className)}>
+export const ClassicButton: FC<ButtonType> = ({ children, type, className, onClick, tabIndex }) => (
+  <button
+    type={type}
+    className={classNames('cursorPointer', styles.button, className)}
+    onClick={onClick}
+    tabIndex={tabIndex}
+  >
     {children}
   </button>
 );

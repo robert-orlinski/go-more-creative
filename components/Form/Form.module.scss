@@ -1,24 +1,17 @@
 @import '/styles/common/mixins';
 
 .form {
-  margin-top: 1rem;
-}
-
-.fields {
-  width: calc(100vw * 10);
-
-  margin: 0 0 1.5rem calc((9 * 100vw));
+  width: 60%;
+  padding: 1rem 0;
+  overflow: hidden;
 }
 
 .field {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   width: 100%;
 }
 
 .input {
-  width: 500px;
+  width: 100%;
   height: 10rem;
   padding: 1.4rem;
 
@@ -36,5 +29,5 @@
 }
 
 .button {
-  margin: 0 1.5rem;
+  margin: 1.5rem 1rem 0;
 }

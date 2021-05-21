@@ -1,15 +1,15 @@
 import { FC } from 'react';
 
-import { FormButtonsTypes } from '../types';
+import { FormButtonsType } from '../types';
 
 import { PrevButton } from './PrevButton';
 import { NextButton } from './NextButton';
 import { Submit } from './Submit';
 
-export const Buttons: FC<FormButtonsTypes> = ({ ideaNumber }) => (
+export const Buttons: FC<FormButtonsType> = ({ ideaNumber, setIdeaNumber }) => (
   <footer className="flex">
-    <PrevButton ideaNumber={ideaNumber} />
-    <NextButton ideaNumber={ideaNumber} />
+    <PrevButton ideaNumber={ideaNumber} setIdeaNumber={setIdeaNumber} />
+    <NextButton ideaNumber={ideaNumber} setIdeaNumber={setIdeaNumber} />
     <Submit ideaNumber={ideaNumber} />
   </footer>
 );

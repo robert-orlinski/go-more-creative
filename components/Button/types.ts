@@ -8,5 +8,7 @@ export interface LinkType extends ClassNameType {
 }
 
 export interface ButtonType extends ClassNameType {
+  onClick?: (event: any) => void;
   type?: 'button' | 'submit' | 'reset';
+  tabIndex?: number;
 }

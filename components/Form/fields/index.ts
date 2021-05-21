@@ -1,42 +1,44 @@
-export const fields: Array<{ name: string; label: string }> = [
+export type FormFieldsType = Array<{ id: number; label: string }>;
+
+export const fields: FormFieldsType = [
   {
-    name: 'idea1',
+    id: 1,
     label: 'first idea:',
   },
   {
-    name: 'idea2',
+    id: 2,
     label: 'nice! second idea:',
   },
   {
-    name: 'idea3',
+    id: 3,
     label: 'woohoo! third idea:',
   },
   {
-    name: 'idea4',
+    id: 4,
     label: 'and fourth idea:',
   },
   {
-    name: 'idea5',
+    id: 5,
     label: 'you are crushing it! the fifth one:',
   },
   {
-    name: 'idea6',
+    id: 6,
     label: 'and the sixth one:',
   },
   {
-    name: 'idea7',
+    id: 7,
     label: 'now, it is going to be harder; seventh one:',
   },
   {
-    name: 'idea8',
+    id: 8,
     label: 'almost! the eight:',
   },
   {
-    name: 'idea9',
+    id: 9,
     label: 'aaaa, we almost got it! the ninth one:',
   },
   {
-    name: 'idea10',
+    id: 10,
     label: 'finally! the last one:',
   },
 ];
