@@ -6,6 +6,7 @@ import { Buttons } from './Buttons';
 import { fields } from './fields';
 
 import styles from './Form.module.scss';
+import { SingleField } from './SingleField';
 
 export const Form = () => {
   const [currentIdeaNumber, setCurrentIdeaNumber] = useState(1);
@@ -38,15 +39,7 @@ export const Form = () => {
         <Fragment key={`field${id}`}>
           {id === currentIdeaNumber && (
             <div className={classNames('flex alignCenter directionColumn', styles.field)}>
-              <label htmlFor={`idea${id}`}>{label}</label>
-              <textarea
-                {...register(`idea${id}`, { required: true })}
-                className={styles.input}
-                id={`idea${id}`}
-              />
-              {errors[`idea${id}`] && (
-                <p className={styles.error}>you need to write down this idea 🚀</p>
-              )}
+              <SingleField id={id} label={label} register={register} errors={errors} />
 
               <Buttons
                 ideaNumber={id}

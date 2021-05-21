@@ -31,7 +31,7 @@ export const fields: FormFieldsType = [
   },
   {
     id: 8,
-    label: 'almost! the eight:',
+    label: 'almost! the eighth:',
   },
   {
     id: 9,

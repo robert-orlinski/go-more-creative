@@ -1,4 +1,14 @@
-export type FormFieldsType = Array<{ id: number; label: string }>;
+import { DeepMap, FieldError, FieldValues, UseFormRegister } from 'react-hook-form';
+
+export interface SingleIdeaType {
+  id: number;
+  label: string;
+}
+
+export interface FormFieldType extends SingleIdeaType {
+  register: UseFormRegister<FieldValues>;
+  errors: DeepMap<FieldValues, FieldError>;
+}
 
 export interface FormFooterType {
   ideaNumber: number;
@@ -14,3 +24,5 @@ export interface FormNextButtonType extends FormFooterType {
 }
 
 export interface FormButtonsType extends FormPrevButtonType, FormNextButtonType {}
+
+export type FormFieldsType = Array<SingleIdeaType>;
