@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useState } from 'react';
+import { Fragment, useCallback, useState } from 'react';
 import { useForm, SubmitHandler, FieldValues } from 'react-hook-form';
 
 import { Buttons } from './Buttons';
@@ -11,36 +11,52 @@ export const Form = () => {
   const [currentIdeaNumber, setCurrentIdeaNumber] = useState(1);
 
   const {
+    trigger,
     register,
     handleSubmit,
-    formState: { errors, isValid },
-  } = useForm<FieldValues>({ mode: 'onChange' });
+    formState: { errors },
+  } = useForm<FieldValues>();
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    console.log(data);
+  };
+
+  const goToPrevField = useCallback(() => {
+    setCurrentIdeaNumber(currentIdeaNumber - 1);
+  }, [currentIdeaNumber]);
+
+  const goToNextField = useCallback(async () => {
+    const result = await trigger(`idea${currentIdeaNumber}`);
+    if (!result) return;
+
+    setCurrentIdeaNumber(currentIdeaNumber + 1);
+  }, [currentIdeaNumber]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       {fields.map(({ id, label }) => (
-        <>
+        <Fragment key={`field${id}`}>
           {id === currentIdeaNumber && (
-            <div
-              className={classNames('flex alignCenter directionColumn', styles.field)}
-              key={`field${id}`}
-            >
-              <label htmlFor={`field${id}`}>{label}</label>
+            <div className={classNames('flex alignCenter directionColumn', styles.field)}>
+              <label htmlFor={`idea${id}`}>{label}</label>
               <textarea
-                {...register(`field${id}`, { required: true })}
+                {...register(`idea${id}`, { required: true })}
                 className={styles.input}
-                id={`field${id}`}
+                id={`idea${id}`}
               />
-              {errors[`field${id}`] && (
-                <p className={styles.error}>you need to write down this idea!</p>
+              {errors[`idea${id}`] && (
+                <p className={styles.error}>you need to write down this idea 🚀</p>
               )}
 
-              <Buttons ideaNumber={currentIdeaNumber} setIdeaNumber={setCurrentIdeaNumber} />
+              <Buttons
+                ideaNumber={id}
+                allIdeas={fields}
+                goToPrevField={goToPrevField}
+                goToNextField={goToNextField}
+              />
             </div>
           )}
-        </>
+        </Fragment>
       ))}
     </form>
   );

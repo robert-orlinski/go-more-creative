@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { FC } from 'react';
 
 import { FormButtonsType } from '../types';
@@ -6,10 +7,17 @@ import { PrevButton } from './PrevButton';
 import { NextButton } from './NextButton';
 import { Submit } from './Submit';
 
-export const Buttons: FC<FormButtonsType> = ({ ideaNumber, setIdeaNumber }) => (
-  <footer className="flex">
-    <PrevButton ideaNumber={ideaNumber} setIdeaNumber={setIdeaNumber} />
-    <NextButton ideaNumber={ideaNumber} setIdeaNumber={setIdeaNumber} />
+import styles from '../Form.module.scss';
+
+export const Buttons: FC<FormButtonsType> = ({
+  ideaNumber,
+  allIdeas,
+  goToPrevField,
+  goToNextField,
+}) => (
+  <footer className={classNames('flex', styles.buttons)}>
+    <PrevButton ideaNumber={ideaNumber} goToPrevField={goToPrevField} />
+    <NextButton ideaNumber={ideaNumber} allIdeas={allIdeas} goToNextField={goToNextField} />
     <Submit ideaNumber={ideaNumber} />
   </footer>
 );

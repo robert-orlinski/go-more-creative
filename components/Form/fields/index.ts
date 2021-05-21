@@ -1,4 +1,4 @@
-export type FormFieldsType = Array<{ id: number; label: string }>;
+import { FormFieldsType } from '../types';
 
 export const fields: FormFieldsType = [
   {
