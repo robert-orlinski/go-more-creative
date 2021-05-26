@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { ClassicButton } from '../../../Button/Classic';
 
-import { FormFooterType } from '../../types';
+import { FormFooterType } from '../../../../types/global';
 
 import styles from '../../Form.module.scss';
 

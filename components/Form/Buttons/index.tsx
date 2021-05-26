@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { FC } from 'react';
 
-import { FormButtonsType } from '../types';
+import { FormButtonsType } from '../../../types/global';
 
 import { PrevButton } from './PrevButton';
 import { NextButton } from './NextButton';

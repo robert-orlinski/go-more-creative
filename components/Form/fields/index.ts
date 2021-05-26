@@ -1,4 +1,4 @@
-import { FormFieldsType } from '../types';
+import { FormFieldsType } from '../../../types/global';
 
 export const fields: FormFieldsType = [
   {

@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { ClassicButton } from '../../../Button/Classic';
 
-import { FormNextButtonType } from '../../types';
+import { FormNextButtonType } from '../../../../types/global';
 
 import styles from '../../Form.module.scss';
 
