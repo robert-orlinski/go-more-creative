@@ -30,15 +30,16 @@ export const Form = () => {
   }, [currentIdeaNumber]);
 
   const goToNextField = useCallback(async () => {
-    const result = await trigger(`idea${currentIdeaNumber}`);
-    if (!result) return;
+    const isFieldValid = await trigger(`idea${currentIdeaNumber}`);
+    if (!isFieldValid) return;
 
     setCurrentIdeaNumber(currentIdeaNumber + 1);
-    // TODO: Focus next input
   }, [currentIdeaNumber]);
 
   const saveFormResult: SubmitHandler<FieldValues> = (data) => {
-    addEntry(data, router, setError);
+    const ideasArray = Object.values(data);
+    // TODO: topic from api
+    addEntry({ topic: 'the morning routine', ideas: ideasArray }, router, setError);
   };
 
   return (
@@ -47,7 +48,13 @@ export const Form = () => {
         <Fragment key={`field${id}`}>
           {id === currentIdeaNumber && (
             <fieldset className={classNames('flex alignCenter directionColumn', styles.field)}>
-              <SingleField id={id} label={label} register={register} errors={errors} />
+              <SingleField
+                id={id}
+                label={label}
+                register={register}
+                errors={errors}
+                goToNextField={goToNextField}
+              />
 
               <Buttons
                 ideaNumber={id}

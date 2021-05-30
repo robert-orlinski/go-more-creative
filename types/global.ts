@@ -1,4 +1,5 @@
 import { DeepMap, FieldError, FieldValues, UseFormRegister } from 'react-hook-form';
+import { Document } from 'mongoose';
 
 export interface SelectivelyVisibleElementType {
   visibleOnClassName:
@@ -8,12 +9,22 @@ export interface SelectivelyVisibleElementType {
     | 'visibleOnWiderThanTablet';
 }
 
+export interface EntryType extends Document {
+  topic: string;
+  ideas: string[];
+  date: Date;
+}
+
 export interface SingleIdeaType {
   id: number;
   label: string;
 }
 
-export interface FormFieldType extends SingleIdeaType {
+export interface FormNextTriggerType {
+  goToNextField: () => void;
+}
+
+export interface FormFieldType extends SingleIdeaType, FormNextTriggerType {
   register: UseFormRegister<FieldValues>;
   errors: DeepMap<FieldValues, FieldError>;
 }
@@ -26,8 +37,7 @@ export interface FormPrevButtonType extends FormFooterType {
   goToPrevField: () => void;
 }
 
-export interface FormNextButtonType extends FormFooterType {
-  goToNextField: () => void;
+export interface FormNextButtonType extends FormFooterType, FormNextTriggerType {
   allIdeas: FormFieldsType;
 }
 
