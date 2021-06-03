@@ -1,5 +1,5 @@
-import { FetchedEntryTypeWithDate } from '../types/global';
+import { AddedEntryType } from '../types/global';
 
 export interface EntriesType {
-  entries: FetchedEntryTypeWithDate[];
+  entries: AddedEntryType[];
 }

@@ -2,9 +2,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { getEntries } from '../requests/getEntries';
 
-import { FetchedEntryTypeWithDate } from '../types/global';
+import { AddedEntryType } from '../types/global';
 
-const initialState: FetchedEntryTypeWithDate[] = [
+const initialState: AddedEntryType[] = [
   {
     _id: 0,
     topic: '',

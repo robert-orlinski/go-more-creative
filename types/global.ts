@@ -1,5 +1,4 @@
 import { DeepMap, FieldError, FieldValues, UseFormRegister } from 'react-hook-form';
-import { Document } from 'mongoose';
 
 export interface SelectivelyVisibleElementType {
   visibleOnClassName:
@@ -14,15 +13,12 @@ export interface AddingEntryType {
   ideas: string[][];
 }
 
-export interface FetchedEntryType extends AddingEntryType {
+export interface AddedEntryType extends AddingEntryType {
+  date: string;
   _id: number;
 }
 
-export interface FetchedEntryTypeWithDate extends FetchedEntryType {
-  date: string;
-}
-
-export interface ListedEntryType extends FetchedEntryType {
+export interface ListedEntryType extends AddedEntryType {
   i: number;
 }
 
