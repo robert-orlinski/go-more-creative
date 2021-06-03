@@ -1,14 +1,5 @@
 .visuallyHidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-
-  overflow: hidden;
-
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-
-  white-space: nowrap;
+  @include visually_hidden;
 }
 
 .wrapper {
@@ -66,13 +57,13 @@
 }
 
 .visibleOnNarrowerThanMobile {
-  @include mq(mobileL, min) {
+  @include mq(phoneL, min) {
     display: none;
   }
 }
 
 .visibleOnWiderThanMobile {
-  @include mq(mobileL) {
+  @include mq(phoneL) {
     display: none;
   }
 }
@@ -87,4 +78,16 @@
   @include mq(tablet) {
     display: none;
   }
+}
+
+.marginBottomS {
+  margin-bottom: 1rem;
+}
+
+.marginBottomM {
+  margin-bottom: 2rem;
+}
+
+.marginBottomL {
+  margin-bottom: 3rem;
 }

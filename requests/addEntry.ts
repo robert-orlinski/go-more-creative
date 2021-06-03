@@ -1,10 +1,10 @@
 import { NextRouter } from 'next/dist/client/router';
 import { FieldValues, UseFormSetError } from 'react-hook-form';
 
-import { AddingFormData } from './types';
+import { AddingEntryType } from '../types/global';
 
 export const addEntry = async (
-  data: AddingFormData,
+  data: AddingEntryType,
   router: NextRouter,
   setError: UseFormSetError<FieldValues>,
 ) => {

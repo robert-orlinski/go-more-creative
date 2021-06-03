@@ -11,8 +11,12 @@
   font-size: 16px;
   line-height: 1.5;
 
-  @include mq(mobileL) {
+  @include mq(phoneM) {
     font-size: 15px;
+  }
+
+  @include mq(phoneS) {
+    font-size: 14px;
   }
 }
 
@@ -55,15 +59,15 @@ h2 {
   font-size: 1.6rem;
 }
 
+h3 {
+  font-size: 1.4rem;
+}
+
 input,
 textarea {
   font-size: 0.8rem;
   font-weight: 600;
   background-color: #fff;
-
-  &::placeholder {
-    color: var(--dark-gray);
-  }
 }
 
 input,
@@ -125,7 +129,8 @@ a,
 }
 
 a,
-button {
+button,
+summary {
   &:focus {
     outline: none;
   }
@@ -141,4 +146,19 @@ a {
       transform: scaleY(2);
     }
   }
+}
+
+li {
+  position: relative;
+}
+
+section,
+header,
+article,
+details {
+  position: relative;
+}
+
+summary {
+  list-style-type: none;
 }

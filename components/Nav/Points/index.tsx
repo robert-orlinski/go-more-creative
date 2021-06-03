@@ -13,11 +13,11 @@ export const Points: FC<SelectivelyVisibleElementType> = ({ visibleOnClassName }
   <ul className={classNames('flex unstyledList', visibleOnClassName)}>
     <li className={classNames('flex alignCenter', navStyles.multipleGroup)}>
       <FireIcon />
-      <span className={styles.number}>5</span>
+      <span className={styles.number}>7</span>
     </li>
     <li className={classNames('flex alignCenter', navStyles.multipleGroup)}>
       <StarIcon />
-      <span className={styles.number}>100</span>
+      <span className={styles.number}>190</span>
     </li>
   </ul>
 );

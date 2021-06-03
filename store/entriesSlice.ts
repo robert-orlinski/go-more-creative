@@ -2,13 +2,16 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { getEntries } from '../requests/getEntries';
 
-import { EntriesType } from './types';
+import { FetchedEntryTypeWithDate } from '../types/global';
 
-const initialState: EntriesType = {
-  entries: [],
-  loading: 'idle',
-  error: null,
-};
+const initialState: FetchedEntryTypeWithDate[] = [
+  {
+    _id: 0,
+    topic: '',
+    ideas: [],
+    date: '',
+  },
+];
 
 export const fetchEntries = createAsyncThunk('entries/fetchEntries', async () => {
   const response = await getEntries();

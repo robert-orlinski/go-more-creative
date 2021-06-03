@@ -2,18 +2,16 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import { connectToDatabase } from '../../api-helpers/connect';
 import { Entry } from '../../api-helpers/Models/Entry';
-import { EntryType } from '../../types/global';
+import { AddedEntryType } from '../../types/global';
 
 const addEntry = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
     try {
       await connectToDatabase();
 
-      const body: EntryType = JSON.parse(req.body);
+      const body: AddedEntryType = JSON.parse(req.body);
       const newEntry = new Entry(body);
       const saved = await newEntry.save();
-
-      console.log(saved);
 
       res.send(saved);
     } catch (err) {

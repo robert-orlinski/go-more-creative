@@ -37,7 +37,8 @@ export const Form = () => {
   }, [currentIdeaNumber]);
 
   const saveFormResult: SubmitHandler<FieldValues> = (data) => {
-    const ideasArray = Object.values(data);
+    const ideasArray = Object.entries(data);
+
     // TODO: topic from api
     addEntry({ topic: 'the morning routine', ideas: ideasArray }, router, setError);
   };

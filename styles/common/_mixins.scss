@@ -1,7 +1,7 @@
 $breakpoints: (
-  'mobileS': 350px,
-  'mobileM': 420px,
-  'mobileL': 576px,
+  'phoneS': 350px,
+  'phoneM': 420px,
+  'phoneL': 576px,
   'tablet': 768px,
   'tabletL': 992px,
   'laptop': 1200px,
@@ -23,9 +23,14 @@ $breakpoints: (
   }
 }
 
-@mixin optional-at-root($sel) {
-  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
-    @content;
+@mixin mq_b($min_width, $max_width) {
+  @if map_has_key($breakpoints, $min_width) and map_has_key($breakpoints, $max_width) {
+    $min_width: map_get($breakpoints, $min_width);
+    $max_width: map_get($breakpoints, $max_width);
+
+    @media only screen and (min-width: $min_width) and (max-width: $max_width) {
+      @content;
+    }
   }
 }
 
@@ -60,4 +65,17 @@ $breakpoints: (
 @mixin full_size($unit: 0%) {
   width: 100 + $unit;
   height: 100 + $unit;
+}
+
+@mixin visually_hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+
+  overflow: hidden;
+
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+
+  white-space: nowrap;
 }

@@ -2,13 +2,13 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import { connectToDatabase } from '../../api-helpers/connect';
 import { Entry } from '../../api-helpers/Models/Entry';
-import { EntryType } from '../../types/global';
+import { AddedEntryType } from '../../types/global';
 
 const getEntries = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     await connectToDatabase();
 
-    const entries: EntryType[] = await Entry.find();
+    const entries: AddedEntryType[] = await Entry.find();
     res.send(entries);
   } catch (err) {
     console.log(err);

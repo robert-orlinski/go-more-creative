@@ -2,13 +2,14 @@ import { Nav } from '../components/Nav';
 import { MainTitle } from '../components/MainTitle';
 import { MainWrapper } from '../components/MainWrapper';
 import { Footer } from '../components/Footer';
-import { Form } from '../components/Form';
+import { EntriesList } from '../components/EntriesList';
 
 const Start = () => (
   <>
     <Nav />
-    <MainWrapper theme="center">
+    <MainWrapper>
       <MainTitle>here you can check all your past ideas!</MainTitle>
+      <EntriesList />
     </MainWrapper>
     <Footer />
   </>

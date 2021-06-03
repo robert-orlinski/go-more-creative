@@ -1,0 +1,114 @@
+@import '/styles/common/mixins';
+
+.entry {
+  @include mq(phoneM) {
+    &:not(:first-of-type) {
+      margin-top: calc(var(--list-padding) * 0.5);
+    }
+  }
+
+  @include mq(tabletL) {
+    --list-padding: 4.5rem;
+
+    &:first-of-type {
+      margin-top: calc(var(--list-padding) * 0.3);
+    }
+  }
+
+  @include mq(phoneM, min) {
+    padding-left: calc(var(--list-padding) * 1.1);
+
+    &:not(:first-of-type) {
+      margin-top: calc(var(--list-padding) * 0.8);
+    }
+  }
+
+  @include mq(tabletL, min) {
+    --list-padding: 5rem;
+
+    padding-left: calc(var(--list-padding) * 1.4);
+
+    &:first-of-type {
+      margin-top: calc(var(--list-padding) * 0.8);
+    }
+
+    &:not(:first-of-type) {
+      margin-top: calc(var(--list-padding) * 1.2);
+    }
+  }
+}
+
+.title {
+  --font-size: calc(var(--list-padding) * 0.3);
+  --padding-top: calc(var(--list-padding) * 0.18);
+
+  padding: var(--padding-top) calc(var(--list-padding) * 0.8) 0 0;
+  font-size: var(--font-size);
+
+  &::after {
+    @include empty_pseudo_element;
+
+    display: flex;
+    align-items: center;
+
+    width: calc(var(--list-padding) * 0.5);
+    height: calc(var(--padding-top) + var(--font-size) * 1.5);
+
+    top: 0;
+    right: 0;
+
+    background: var(--arrow-down-icon) center no-repeat;
+    background-size: contain;
+  }
+
+  .entry[open] > & {
+    &::after {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.indexContainer {
+  position: absolute;
+
+  height: 100%;
+
+  top: 0;
+  left: 0;
+
+  @include mq(phoneM) {
+    @include visually_hidden;
+  }
+}
+
+.index {
+  position: sticky;
+
+  width: calc(var(--list-padding) * 0.6);
+  height: var(--list-padding);
+
+  top: var(--nav-height);
+
+  font-size: calc(var(--list-padding) * 0.5);
+}
+
+.list {
+  counter-reset: singleIdea;
+
+  padding: calc(var(--list-padding) * 0.5) 0 0 calc(var(--list-padding) * 0.6);
+  list-style: none;
+}
+
+.listItem {
+  padding-bottom: 1rem;
+
+  &::before {
+    position: absolute;
+    content: counter(singleIdea) '.';
+
+    left: calc(var(--list-padding) * -0.5);
+    top: 0;
+
+    counter-increment: singleIdea;
+  }
+}

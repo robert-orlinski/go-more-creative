@@ -1,5 +1,5 @@
 import mongoose, { model, Model, Schema } from 'mongoose';
-import { EntryType } from '../../types/global';
+import { AddedEntryType } from '../../types/global';
 
 const EntrySchema: Schema = new Schema(
   {
@@ -7,7 +7,7 @@ const EntrySchema: Schema = new Schema(
       type: String,
     },
     ideas: {
-      type: [String],
+      type: [[String, String]],
     },
     date: {
       type: Date,
@@ -19,4 +19,4 @@ const EntrySchema: Schema = new Schema(
   },
 );
 
-export const Entry: Model<EntryType> = mongoose.models.Entry || model('Entry', EntrySchema);
+export const Entry: Model<AddedEntryType> = mongoose.models.Entry || model('Entry', EntrySchema);

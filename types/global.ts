@@ -9,10 +9,21 @@ export interface SelectivelyVisibleElementType {
     | 'visibleOnWiderThanTablet';
 }
 
-export interface EntryType extends Document {
+export interface AddingEntryType {
   topic: string;
-  ideas: string[];
-  date: Date;
+  ideas: string[][];
+}
+
+export interface FetchedEntryType extends AddingEntryType {
+  _id: number;
+}
+
+export interface FetchedEntryTypeWithDate extends FetchedEntryType {
+  date: string;
+}
+
+export interface ListedEntryType extends FetchedEntryType {
+  i: number;
 }
 
 export interface SingleIdeaType {
