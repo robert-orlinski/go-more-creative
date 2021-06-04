@@ -1,19 +1,18 @@
 import { NextRouter } from 'next/dist/client/router';
 import { FieldValues, UseFormSetError } from 'react-hook-form';
 
-import { AddingEntryType } from '../types/global';
+import { EntryType } from '../types/global';
+
+import { add } from '../store/entriesSlice';
 
 export const addEntry = async (
-  data: AddingEntryType,
+  data: EntryType,
   router: NextRouter,
   setError: UseFormSetError<FieldValues>,
 ) => {
   const saveIdeas = await fetch('/api/add-entry', {
     method: 'POST',
-    body: JSON.stringify({
-      ...data,
-      date: new Date(),
-    }),
+    body: JSON.stringify(data),
   });
 
   const areIdeasSaved = saveIdeas.ok;

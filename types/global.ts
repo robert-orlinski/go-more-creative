@@ -1,3 +1,4 @@
+import { Types } from 'mongoose';
 import { DeepMap, FieldError, FieldValues, UseFormRegister } from 'react-hook-form';
 
 export interface SelectivelyVisibleElementType {
@@ -8,17 +9,14 @@ export interface SelectivelyVisibleElementType {
     | 'visibleOnWiderThanTablet';
 }
 
-export interface AddingEntryType {
+export interface EntryType {
+  _id: Types.ObjectId | string;
   topic: string;
   ideas: string[][];
-}
-
-export interface AddedEntryType extends AddingEntryType {
   date: string;
-  _id: number;
 }
 
-export interface ListedEntryType extends AddedEntryType {
+export interface ListedEntryType extends EntryType {
   i: number;
 }
 

@@ -1,5 +1,5 @@
-import { AddedEntryType } from '../types/global';
+import { EntryType } from '../types/global';
 
 export interface EntriesType {
-  entries: AddedEntryType[];
+  entries: EntryType[];
 }

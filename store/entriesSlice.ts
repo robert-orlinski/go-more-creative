@@ -1,15 +1,15 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
 import { getEntries } from '../requests/getEntries';
 
-import { AddedEntryType } from '../types/global';
+import { EntryType } from '../types/global';
 
-const initialState: AddedEntryType[] = [
+const initialState: EntryType[] = [
   {
-    _id: 0,
+    _id: '',
     topic: '',
     ideas: [],
-    date: '',
+    date: new Date().toISOString(),
   },
 ];
 
@@ -20,13 +20,19 @@ export const fetchEntries = createAsyncThunk('entries/fetchEntries', async () =>
   return data;
 });
 
-const entriesSlice = createSlice({
+const slice = createSlice({
   name: 'entries',
   initialState,
-  reducers: {},
+  reducers: {
+    add: (state, { payload }: PayloadAction<EntryType>) => {
+      state.push(payload);
+    },
+  },
   extraReducers: (builder) => {
-    builder.addCase(fetchEntries.fulfilled, (state, action) => action.payload);
+    builder.addCase(fetchEntries.fulfilled, (state, { payload }) => payload);
   },
 });
 
-export default entriesSlice.reducer;
+export const { add } = slice.actions;
+
+export default slice.reducer;

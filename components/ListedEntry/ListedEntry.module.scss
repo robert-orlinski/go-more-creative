@@ -95,7 +95,8 @@
 .list {
   counter-reset: singleIdea;
 
-  padding: calc(var(--list-padding) * 0.5) 0 0 calc(var(--list-padding) * 0.6);
+  padding: calc(var(--list-padding) * 0.5) 0 calc(var(--list-padding) * 0.3)
+    calc(var(--list-padding) * 0.6);
   list-style: none;
 }
 
