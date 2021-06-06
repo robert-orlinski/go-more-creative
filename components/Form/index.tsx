@@ -58,9 +58,12 @@ export const Form = () => {
 
     const isEntryAddedToDatabase = !errors.form;
     if (isEntryAddedToDatabase) {
-      entry._id = entry._id.toString();
+      const entryToAddToStore = {
+        ...entry,
+        _id: entry._id.toString(),
+      };
 
-      dispatch(add(entry));
+      dispatch(add(entryToAddToStore));
     }
   };
 
