@@ -1,4 +1,3 @@
-import { Types } from 'mongoose';
 import { DeepMap, FieldError, FieldValues, UseFormRegister } from 'react-hook-form';
 
 export interface SelectivelyVisibleElementType {
@@ -9,16 +8,21 @@ export interface SelectivelyVisibleElementType {
     | 'visibleOnWiderThanTablet';
 }
 
+export interface MongoIdType {
+  _id: string;
+}
+
 export interface EntryType {
-  _id: Types.ObjectId | string;
   topic: string;
   ideas: string[][];
   date: string;
 }
 
-export interface ListedEntryType extends EntryType {
+export type FetchedEntryType = MongoIdType & EntryType;
+
+export type ListedEntryType = Omit<FetchedEntryType, 'date'> & {
   i: number;
-}
+};
 
 export interface SingleIdeaType {
   id: number;
@@ -46,6 +50,16 @@ export interface FormNextButtonType extends FormFooterType, FormNextTriggerType 
   allIdeas: FormFieldsType;
 }
 
-export interface FormButtonsType extends FormPrevButtonType, FormNextButtonType {}
+export interface TopicType extends MongoIdType {
+  name: string;
+  level: 'easy' | 'normal' | 'hard';
+}
 
-export type FormFieldsType = Array<SingleIdeaType>;
+export interface TopicsType {
+  list: TopicType[];
+  currentTopic: TopicType;
+}
+
+export type FormButtonsType = FormPrevButtonType & FormNextButtonType;
+
+export type FormFieldsType = SingleIdeaType[];

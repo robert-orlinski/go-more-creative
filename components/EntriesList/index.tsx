@@ -1,18 +1,17 @@
 import { useSelector } from 'react-redux';
-import classNames from 'classnames';
 
-import { EntriesType } from '../../store/types';
+import { EntriesStateType } from '../../store/types';
 import { LinkButton } from '../Button/Link';
 import { ListedEntry } from '../ListedEntry';
 
 export const EntriesList = () => {
-  const entries = useSelector((state: EntriesType) => state.entries);
+  const entries = useSelector((state: EntriesStateType) => state.entries);
 
   return (
     <>
       {entries ? (
         entries.map(({ _id, topic, ideas }, i) => (
-          <ListedEntry _id={_id} topic={topic} ideas={ideas} i={i} key={_id} />
+          <ListedEntry _id={_id} topic={topic} ideas={ideas} i={i} key={_id as string} />
         ))
       ) : (
         <article className="center">

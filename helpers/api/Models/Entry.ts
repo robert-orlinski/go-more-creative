@@ -1,5 +1,5 @@
 import mongoose, { model, Model, Schema } from 'mongoose';
-import { EntryType } from '../../types/global';
+import { EntryType } from '../../../types/global';
 
 const EntrySchema: Schema = new Schema(
   {

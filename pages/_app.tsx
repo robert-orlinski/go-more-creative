@@ -5,16 +5,18 @@ import '@fontsource/montserrat/700.css';
 import '../styles/main.scss';
 
 import store from '../store';
+
 import { fetchEntries } from '../store/entriesSlice';
+import { fetchTopics } from '../store/topicsSlice';
 
-store.dispatch(fetchEntries());
+[fetchEntries, fetchTopics].forEach((actionCreator) => {
+  store.dispatch(actionCreator());
+});
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
-  return (
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
-  );
-};
+const MyApp = ({ Component, pageProps }: AppProps) => (
+  <Provider store={store}>
+    <Component {...pageProps} />
+  </Provider>
+);
 
 export default MyApp;

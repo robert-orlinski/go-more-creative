@@ -1,40 +1,29 @@
 @import '/styles/common/mixins';
 
 .entry {
-  @include mq(phoneM) {
-    &:not(:first-of-type) {
-      margin-top: calc(var(--list-padding) * 0.5);
-    }
+  --list-padding: 5rem;
+  --entry-margin-top: calc(var(--list-padding) * 1.2);
+  --entry-padding-left: calc(var(--list-padding) * 1.4);
+
+  padding-left: var(--entry-padding-left);
+
+  &:first-of-type {
+    margin-top: calc(var(--entry-margin-top) * 0.65);
+  }
+
+  &:not(:first-of-type) {
+    margin-top: var(--entry-margin-top);
   }
 
   @include mq(tabletL) {
     --list-padding: 4.5rem;
-
-    &:first-of-type {
-      margin-top: calc(var(--list-padding) * 0.3);
-    }
+    --entry-margin-top: calc(var(--list-padding) * 0.8);
+    --entry-padding-left: calc(var(--list-padding) * 1.1);
   }
 
-  @include mq(phoneM, min) {
-    padding-left: calc(var(--list-padding) * 1.1);
-
-    &:not(:first-of-type) {
-      margin-top: calc(var(--list-padding) * 0.8);
-    }
-  }
-
-  @include mq(tabletL, min) {
-    --list-padding: 5rem;
-
-    padding-left: calc(var(--list-padding) * 1.4);
-
-    &:first-of-type {
-      margin-top: calc(var(--list-padding) * 0.8);
-    }
-
-    &:not(:first-of-type) {
-      margin-top: calc(var(--list-padding) * 1.2);
-    }
+  @include mq(phoneM) {
+    --entry-margin-top: calc(var(--list-padding) * 0.5);
+    --entry-padding-left: 0;
   }
 }
 

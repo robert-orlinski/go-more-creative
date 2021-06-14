@@ -1,5 +1,9 @@
-import { EntryType } from '../types/global';
+import { FetchedEntryType, TopicsType } from '../types/global';
 
-export interface EntriesType {
-  entries: EntryType[];
+export interface EntriesStateType {
+  entries: FetchedEntryType[];
+}
+
+export interface TopicsStateType {
+  topics: TopicsType;
 }
