@@ -18,9 +18,7 @@ export const EntriesList = () => {
           <p className="textCenter marginBottomM">
             oh... you do not have any ideas. but you can add them immediately:
           </p>
-          <LinkButton href="/practice" className="">
-            i will do it!
-          </LinkButton>
+          <LinkButton href="/practice">i will do it!</LinkButton>
         </article>
       )}
     </>
