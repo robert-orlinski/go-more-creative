@@ -1,20 +1,16 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-
-import { connectToDatabase } from '../../../helpers/api/connect';
 import { Entry } from '../../../helpers/api/Models/Entry';
+
+import { useRequestMethod } from '../../../helpers/api/useRequestMethod';
+import { useDatabase } from '../../../helpers/api/useDatabase';
+
 import { EntryType } from '../../../types/global';
 
-const getEntries = async (req: NextApiRequest, res: NextApiResponse) => {
-  try {
-    await connectToDatabase();
-
+const getEntries = useRequestMethod({
+  GET: useDatabase(async (req, res) => {
     const entries: EntryType[] = await Entry.find();
-    res.send(entries);
-  } catch (err) {
-    console.log(err);
 
-    res.status(500).send('There is an error');
-  }
-};
+    res.send(entries);
+  }),
+});
 
 export default getEntries;

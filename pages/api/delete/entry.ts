@@ -1,23 +1,14 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-
-import { connectToDatabase } from '../../../helpers/api/connect';
 import { Entry } from '../../../helpers/api/Models/Entry';
+import { useDatabase } from '../../../helpers/api/useDatabase';
+import { useRequestMethod } from '../../../helpers/api/useRequestMethod';
 
-const deleteEntry = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === 'DELETE') {
-    try {
-      await connectToDatabase();
+const deleteEntry = useRequestMethod({
+  DELETE: useDatabase(async (req, res) => {
+    const { _id } = JSON.parse(req.body);
+    await Entry.deleteOne({ _id });
 
-      const { _id } = JSON.parse(req.body);
-      await Entry.deleteOne({ _id });
-
-      res.status(200).send('entry deleted');
-    } catch (err) {
-      res.status(500).send('something went wrong 💔');
-    }
-  } else {
-    res.status(405).send('method not allowed');
-  }
-};
+    res.status(200).send('entry deleted');
+  }),
+});
 
 export default deleteEntry;
