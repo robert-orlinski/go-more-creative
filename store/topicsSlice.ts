@@ -3,21 +3,22 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { getTopicsFromApi } from '../utils/requests';
 
 import { getRandomItemFromArray } from '../helpers/functions';
-import { TopicsType } from '../types/global';
+import { TopicsType } from './types';
+
+const statusMessages = {
+  pending: 'loading...',
+  fulfilled: undefined,
+  rejected: "couldn't fetch topics.",
+};
 
 const initialState: TopicsType = {
-  list: [
-    {
-      _id: '',
-      name: '',
-      level: 'easy',
-    },
-  ],
+  list: [],
   currentTopic: {
     _id: '',
     name: '',
     level: 'easy',
   },
+  statusMessage: statusMessages.pending,
 };
 
 export const fetchTopics = createAsyncThunk('topics/fetchTopics', async () => {
@@ -31,19 +32,28 @@ const slice = createSlice({
   name: 'topics',
   initialState,
   reducers: {
-    select: (state) => ({
+    selectRandom: (state) => ({
       ...state,
       currentTopic: getRandomItemFromArray(state.list),
     }),
   },
-  extraReducers: (builder) => {
-    builder.addCase(fetchTopics.fulfilled, (state, { payload }) => ({
-      list: payload,
-      currentTopic: getRandomItemFromArray(payload),
-    }));
-  },
+  extraReducers: (builder) =>
+    builder
+      .addCase(fetchTopics.pending, (state) => ({
+        ...state,
+        statusMessage: statusMessages.pending,
+      }))
+      .addCase(fetchTopics.fulfilled, (state, { payload }) => ({
+        list: payload,
+        currentTopic: getRandomItemFromArray(payload),
+        statusMessage: statusMessages.fulfilled,
+      }))
+      .addCase(fetchTopics.rejected, (state) => ({
+        ...state,
+        statusMessage: statusMessages.rejected,
+      })),
 });
 
-export const { select } = slice.actions;
+export const { selectRandom } = slice.actions;
 
 export default slice.reducer;

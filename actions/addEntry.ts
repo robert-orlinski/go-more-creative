@@ -4,10 +4,10 @@ import { FieldValues, UseFormSetError } from 'react-hook-form';
 
 import { addEntryToApi } from '../utils/requests';
 
-import { EntryType, FetchedEntryType, TopicsType, TopicType } from '../types/global';
+import { EntryType, FetchedEntryType } from '../types/global';
 
 import { add } from '../store/entriesSlice';
-import { select } from '../store/topicsSlice';
+import { selectRandom } from '../store/topicsSlice';
 
 export const addEntry =
   (data: EntryType, setError: UseFormSetError<FieldValues>) =>
@@ -21,7 +21,7 @@ export const addEntry =
       Router.push('/');
 
       dispatch(add(savedEntry));
-      dispatch(select());
+      dispatch(selectRandom());
     } else {
       const errorMessage = await saveEntry.text();
 

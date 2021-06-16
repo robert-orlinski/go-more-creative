@@ -5,12 +5,16 @@ import { LinkButton } from '../Button/Link';
 import { ListedEntry } from '../ListedEntry';
 
 export const EntriesList = () => {
-  const entries = useSelector((state: EntriesStateType) => state.entries);
+  const { statusMessage, list } = useSelector((state: EntriesStateType) => state.entries);
 
   return (
     <>
-      {entries.length > 0 ? (
-        entries.map(({ _id, topic, ideas }, i) => (
+      {statusMessage ? (
+        <article className="center">
+          <p className="textCenter marginBottomM">Loading...</p>
+        </article>
+      ) : list.length > 0 ? (
+        list.map(({ _id, topic, ideas }, i) => (
           <ListedEntry _id={_id} topic={topic} ideas={ideas} i={i} key={_id} />
         ))
       ) : (

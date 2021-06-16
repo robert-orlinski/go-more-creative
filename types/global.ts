@@ -55,11 +55,6 @@ export interface TopicType extends MongoIdType {
   level: 'easy' | 'normal' | 'hard';
 }
 
-export interface TopicsType {
-  list: TopicType[];
-  currentTopic: TopicType;
-}
-
 export type FormButtonsType = FormPrevButtonType & FormNextButtonType;
 
 export type FormFieldsType = SingleIdeaType[];

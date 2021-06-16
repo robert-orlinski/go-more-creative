@@ -15,3 +15,5 @@ const addEntry = useRequestMethod({
     res.status(201).json(newEntry);
   }),
 });
+
+export default addEntry;

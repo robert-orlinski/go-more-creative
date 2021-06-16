@@ -1,7 +1,20 @@
-import { FetchedEntryType, TopicsType } from '../types/global';
+import { FetchedEntryType, TopicType } from '../types/global';
+
+export interface statusMessageType {
+  statusMessage: string | undefined;
+}
+
+export interface EntriesType extends statusMessageType {
+  list: FetchedEntryType[];
+}
 
 export interface EntriesStateType {
-  entries: FetchedEntryType[];
+  entries: EntriesType;
+}
+
+export interface TopicsType extends statusMessageType {
+  list: TopicType[];
+  currentTopic: TopicType;
 }
 
 export interface TopicsStateType {
