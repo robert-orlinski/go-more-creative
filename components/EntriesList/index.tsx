@@ -9,9 +9,9 @@ export const EntriesList = () => {
 
   return (
     <>
-      {entries ? (
+      {entries.length > 0 ? (
         entries.map(({ _id, topic, ideas }, i) => (
-          <ListedEntry _id={_id} topic={topic} ideas={ideas} i={i} key={_id as string} />
+          <ListedEntry _id={_id} topic={topic} ideas={ideas} i={i} key={_id} />
         ))
       ) : (
         <article className="center">
