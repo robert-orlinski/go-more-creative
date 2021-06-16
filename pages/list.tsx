@@ -1,18 +1,15 @@
-import { Nav } from '../components/Nav';
+import { Layout } from '../components/Layout';
 import { MainTitle } from '../components/MainTitle';
 import { MainWrapper } from '../components/MainWrapper';
-import { Footer } from '../components/Footer';
 import { EntriesList } from '../components/EntriesList';
 
-const Start = () => (
-  <>
-    <Nav />
+const List = () => (
+  <Layout>
     <MainWrapper>
       <MainTitle>here you can check all your past ideas!</MainTitle>
       <EntriesList />
     </MainWrapper>
-    <Footer />
-  </>
+  </Layout>
 );
 
-export default Start;
+export default List;

@@ -13,10 +13,10 @@ import { fetchTopics } from '../store/topicsSlice';
   store.dispatch(actionCreator());
 });
 
-const MyApp = ({ Component, pageProps }: AppProps) => (
+const App = ({ Component, pageProps }: AppProps) => (
   <Provider store={store}>
     <Component {...pageProps} />
   </Provider>
 );
 
-export default MyApp;
+export default App;

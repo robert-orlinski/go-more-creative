@@ -1,19 +1,17 @@
 import { useSelector } from 'react-redux';
 
-import { Nav } from '../components/Nav';
+import { Layout } from '../components/Layout';
 import { MainTitle } from '../components/MainTitle';
 import { MainWrapper } from '../components/MainWrapper';
-import { Footer } from '../components/Footer';
 import { Form } from '../components/Form';
 
 import { TopicsStateType } from '../store/types';
 
-const Start = () => {
+const Practice = () => {
   const { name: topicName } = useSelector((state: TopicsStateType) => state.topics.currentTopic);
 
   return (
-    <>
-      <Nav />
+    <Layout>
       <MainWrapper theme="center">
         <MainTitle>
           tell me your 10 ideas for
@@ -21,9 +19,8 @@ const Start = () => {
         </MainTitle>
         <Form />
       </MainWrapper>
-      <Footer />
-    </>
+    </Layout>
   );
 };
 
-export default Start;
+export default Practice;
