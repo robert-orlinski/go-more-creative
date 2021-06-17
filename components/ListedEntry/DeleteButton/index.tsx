@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { deleteEntry } from '../../../actions/deleteEntry';

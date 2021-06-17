@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Layout } from '../components/Layout';
 import { MainTitle } from '../components/MainTitle';
 import { MainWrapper } from '../components/MainWrapper';
