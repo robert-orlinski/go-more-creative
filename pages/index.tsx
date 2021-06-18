@@ -22,7 +22,7 @@ const Start = () => {
           ) : (
             <MainWrapper theme="center">
               <MainTitle>gamified app that trains your creativity</MainTitle>
-              <p className="marginBottomL">
+              <p className="textCenter marginBottomL">
                 you can log in and start to fulfilling 10 ideas for various topics - every day!
               </p>
               <ClassicButton onClick={() => signIn()}>sign me in!</ClassicButton>
