@@ -2,11 +2,11 @@ import { connect, ConnectionOptions } from 'mongoose';
 
 declare const process: {
   env: {
-    MONGO_URI: string;
+    DATABASE_URL: string;
   };
 };
 
-const { MONGO_URI } = process.env;
+const { DATABASE_URL } = process.env;
 
 const options: ConnectionOptions = {
   useFindAndModify: true,
@@ -15,4 +15,4 @@ const options: ConnectionOptions = {
   useNewUrlParser: true,
 };
 
-export const connectToDatabase = () => connect(MONGO_URI, options);
+export const connectToDatabase = () => connect(DATABASE_URL, options);

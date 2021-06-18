@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app';
-import { Provider } from 'react-redux';
+import { Provider as StoreProvider } from 'react-redux';
+import { Provider as SessionProvider, getSession } from 'next-auth/client';
 
 import '@fontsource/montserrat/700.css';
 import '../styles/main.scss';
@@ -9,15 +10,30 @@ import store from '../store';
 
 import { fetchEntries } from '../store/entriesSlice';
 import { fetchTopics } from '../store/topicsSlice';
+import { fetchCurrentUser } from '../store/currentUserSlice';
 
-[fetchEntries, fetchTopics].forEach((actionCreator) => {
-  store.dispatch(actionCreator());
-});
+const App = ({ Component, pageProps }: AppProps) => {
+  useEffect(() => {
+    const setupStore = async () => {
+      const session = await getSession();
 
-const App = ({ Component, pageProps }: AppProps) => (
-  <Provider store={store}>
-    <Component {...pageProps} />
-  </Provider>
-);
+      if (session) {
+        [fetchEntries, fetchTopics, fetchCurrentUser].forEach((actionCreator) => {
+          store.dispatch(actionCreator());
+        });
+      }
+    };
+
+    setupStore();
+  }, []);
+
+  return (
+    <SessionProvider session={pageProps.session}>
+      <StoreProvider store={store}>
+        <Component {...pageProps} />
+      </StoreProvider>
+    </SessionProvider>
+  );
+};
 
 export default App;

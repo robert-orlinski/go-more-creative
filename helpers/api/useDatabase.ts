@@ -10,6 +10,6 @@ export const useDatabase =
 
       return handler(req, res);
     } catch (err) {
-      res.status(500).send('there is an error 💔');
+      res.status(500).json({ error: 'there is an error 💔' });
     }
   };

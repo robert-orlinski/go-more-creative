@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { Fragment, useCallback, useState } from 'react';
 import { useForm, SubmitHandler, FieldValues } from 'react-hook-form';
@@ -8,7 +7,7 @@ import classNames from 'classnames';
 import { addEntry } from '../../actions/addEntry';
 
 import { EntryType } from '../../types/global';
-import { TopicsStateType } from '../../store/types';
+import { StoreType } from '../../store/types';
 
 import { Buttons } from './Buttons';
 import { fields } from './fields';
@@ -17,10 +16,12 @@ import { SingleField } from './SingleField';
 import styles from './Form.module.scss';
 
 export const Form = () => {
-  const { name: topicName } = useSelector((state: TopicsStateType) => state.topics.currentTopic);
-  const dispatch = useDispatch();
+  const { name: topicName } = useSelector((state: StoreType) => state.topics.currentTopic);
+  const userId = useSelector((state: StoreType) => state.currentUserId);
 
   const [currentIdeaNumber, setCurrentIdeaNumber] = useState(1);
+
+  const dispatch = useDispatch();
 
   const {
     setError,
@@ -49,6 +50,7 @@ export const Form = () => {
     const entry: EntryType = {
       topic: topicName,
       ideas: ideasArray,
+      userId: userId,
       date: new Date().toISOString(),
     };
 

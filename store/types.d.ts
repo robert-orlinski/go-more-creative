@@ -8,15 +8,13 @@ export interface EntriesType extends statusMessageType {
   list: FetchedEntryType[];
 }
 
-export interface EntriesStateType {
-  entries: EntriesType;
-}
-
 export interface TopicsType extends statusMessageType {
   list: TopicType[];
   currentTopic: TopicType;
 }
 
-export interface TopicsStateType {
+export interface StoreType {
+  entries: EntriesType;
   topics: TopicsType;
+  currentUserId: string;
 }

@@ -7,7 +7,7 @@ const deleteEntry = useRequestMethod({
     const { _id } = JSON.parse(req.body);
     await Entry.deleteOne({ _id });
 
-    res.status(200).send('entry deleted');
+    res.status(200).json({ message: 'entry deleted' });
   }),
 });
 

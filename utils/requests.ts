@@ -1,4 +1,4 @@
-import { EntryType, MongoIdType } from '../types/global';
+import { EntryType } from '../types/global';
 
 export const getEntriesFromApi = async () =>
   await fetch('/api/get/entries', {

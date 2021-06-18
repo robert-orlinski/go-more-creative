@@ -15,12 +15,13 @@ export interface MongoIdType {
 export interface EntryType {
   topic: string;
   ideas: string[][];
+  userId: string;
   date: string;
 }
 
 export type FetchedEntryType = MongoIdType & EntryType;
 
-export type ListedEntryType = Omit<FetchedEntryType, 'date'> & {
+export type ListedEntryType = Omit<FetchedEntryType, 'date' | 'userId'> & {
   i: number;
 };
 

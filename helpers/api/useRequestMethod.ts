@@ -15,6 +15,6 @@ export const useRequestMethod =
     if (handler) {
       return handler(req, res);
     } else {
-      res.status(405).send('method not allowed');
+      res.status(405).json({ error: 'method not allowed' });
     }
   };

@@ -1,12 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { EntriesStateType } from '../../store/types';
+import { StoreType } from '../../store/types';
 import { LinkButton } from '../Button/Link';
 import { ListedEntry } from '../ListedEntry';
 
 export const EntriesList = () => {
-  const { statusMessage, list } = useSelector((state: EntriesStateType) => state.entries);
+  const { statusMessage, list } = useSelector((state: StoreType) => state.entries);
+  const currentUserId = useSelector((state: StoreType) => state.currentUserId);
 
   return (
     <>

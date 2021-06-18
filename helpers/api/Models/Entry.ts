@@ -9,6 +9,9 @@ const EntrySchema: Schema = new Schema(
     ideas: {
       type: [[String, String]],
     },
+    userId: {
+      type: Schema.Types.ObjectId,
+    },
     date: {
       type: Date,
       default: Date.now,
