@@ -1,8 +1,9 @@
 @import '/styles/common/mixins';
 
 .entry {
-  --list-padding: 5rem;
-  --entry-margin-top: calc(var(--list-padding) * 1.2);
+  --entry-padding-default: 5rem;
+  --entry-margin-top: calc(var(--entry-padding-default) * 1.2);
+  --entry-padding-left: calc(var(--entry-padding-default) * 1.4);
 
   &:first-of-type {
     margin-top: calc(var(--entry-margin-top) * 0.65);
@@ -13,32 +14,24 @@
   }
 
   @include mq(tabletL) {
-    --list-padding: 4.5rem;
-    --entry-margin-top: calc(var(--list-padding) * 0.8);
-    --entry-padding-left: calc(var(--list-padding) * 1.1);
+    --entry-padding-default: 4.5rem;
+    --entry-margin-top: calc(var(--entry-padding-default) * 0.8);
+    --entry-padding-left: calc(var(--entry-padding-default) * 1.1);
   }
 
   @include mq(phoneM) {
-    --entry-margin-top: calc(var(--list-padding) * 0.5);
+    --entry-margin-top: calc(var(--entry-padding-default) * 0.5);
     --entry-padding-left: 0;
   }
 }
 
 .title {
-  --font-size: calc(var(--list-padding) * 0.3);
-  --padding-top: calc(var(--list-padding) * 0.18);
-  --padding-left: calc(var(--list-padding) * 1.4);
+  --title-font-size: calc(var(--entry-padding-default) * 0.3);
+  --title-padding-top: calc(var(--entry-padding-default) * 0.18);
 
-  padding: var(--padding-top) calc(var(--list-padding) * 0.8) 0 var(--padding-left);
-  font-size: var(--font-size);
-
-  @include mq(tabletL) {
-    --padding-left: calc(var(--list-padding) * 1.1);
-  }
-
-  @include mq(phoneM) {
-    --padding-left: 0;
-  }
+  padding: var(--title-padding-top) calc(var(--entry-padding-default) * 0.8) 0
+    var(--entry-padding-left);
+  font-size: var(--title-font-size);
 
   &::after {
     @include empty_pseudo_element;
@@ -46,8 +39,8 @@
     display: flex;
     align-items: center;
 
-    width: calc(var(--list-padding) * 0.5);
-    height: calc(var(--padding-top) + var(--font-size) * 1.5);
+    width: calc(var(--entry-padding-default) * 0.5);
+    height: calc(var(--title-padding-top) + var(--title-font-size) * 1.5);
 
     top: 0;
     right: 0;
@@ -61,6 +54,10 @@
       transform: rotate(180deg);
     }
   }
+}
+
+.content {
+  padding-left: var(--entry-padding-left);
 }
 
 .indexContainer {
@@ -79,19 +76,19 @@
 .index {
   position: sticky;
 
-  width: calc(var(--list-padding) * 0.6);
-  height: var(--list-padding);
+  width: calc(var(--entry-padding-default) * 0.6);
+  height: var(--entry-padding-default);
 
   top: var(--nav-height);
 
-  font-size: calc(var(--list-padding) * 0.5);
+  font-size: calc(var(--entry-padding-default) * 0.5);
 }
 
 .list {
   counter-reset: singleIdea;
 
-  padding: calc(var(--list-padding) * 0.5) 0 calc(var(--list-padding) * 0.3)
-    calc(var(--list-padding) * 0.6);
+  padding: calc(var(--entry-padding-default) * 0.5) 0 calc(var(--entry-padding-default) * 0.3)
+    calc(var(--entry-padding-default) * 0.6);
   list-style: none;
 }
 
@@ -102,7 +99,7 @@
     position: absolute;
     content: counter(singleIdea) '.';
 
-    left: calc(var(--list-padding) * -0.5);
+    left: calc(var(--entry-padding-default) * -0.5);
     top: 0;
 
     counter-increment: singleIdea;

@@ -18,7 +18,7 @@ export const ListedEntry: FC<ListedEntryType> = ({ _id, topic, ideas, i }) => {
         </span>
         <span className="highlight">{topic}</span>
       </summary>
-      <article>
+      <article className={styles.content}>
         <ol className={styles.list}>
           {ideas.map(([ideaId, idea]) => (
             <li className={styles.listItem} key={`${_id}-${ideaId}`}>
