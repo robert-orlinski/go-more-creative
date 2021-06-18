@@ -14,9 +14,7 @@ export const Brand = () => (
             fill="#000"
           />
         </svg>
-        <h1 className="visuallyHidden">
-          GoMoreCreative - a gamified app that trains your creativity
-        </h1>
+        <h1 className="visuallyHidden">go more creative</h1>
       </a>
     </Link>
   </>
