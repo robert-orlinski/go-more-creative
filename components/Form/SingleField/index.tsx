@@ -23,6 +23,7 @@ export const SingleField: FC<FormFieldType> = ({ id, label, register, errors, go
       <textarea
         {...register(name, { required: true })}
         className={styles.input}
+        data-testid={name}
         id={name}
         autoFocus={id === 1 ? false : true}
         aria-invalid={errors[name] ? 'true' : 'false'}

@@ -10,7 +10,13 @@ export const NextButton: FC<FormNextButtonType> = ({ ideaNumber, allIdeas, goToN
   return (
     <>
       {ideaNumber !== allIdeas.length && (
-        <ClassicButton className={styles.button} type="button" onClick={goToNextField}>
+        <ClassicButton
+          className={styles.button}
+          type="button"
+          onClick={goToNextField}
+          data-testid="next"
+          testId="next"
+        >
           next
         </ClassicButton>
       )}
