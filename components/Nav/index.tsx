@@ -30,7 +30,7 @@ export const Nav = () => {
               />
             </>
           ) : (
-            <Login visibleOnClassName="visibleOnWiderThanMobile" />
+            <Login />
           )}
         </div>
         <List isVisible={isMobileMenuVisible} />
