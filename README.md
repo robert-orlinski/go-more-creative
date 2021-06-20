@@ -74,4 +74,4 @@ And that's it for now. Maybe you have some ideas for new features? If yes, you c
 
 ## Contribution
 
-GoMoreCreative is an open-source project done for training, so code review or contributions of any kind are welcome and appreciated. Feel free to make `bug`, `code-review`, `enhancement`, `feature` or `question` requests in the [issues](https://github.com/robert-orlinski/go-more-creative/issues) tab ☀️
+GoMoreCreative is an open-source project done for training, so code review or contributions of any kind are welcome and appreciated. Feel free to make `bug`, `code-review`, `enhancement` or `question` requests in the [issues](https://github.com/robert-orlinski/go-more-creative/issues) tab ☀️
