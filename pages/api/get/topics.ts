@@ -11,7 +11,7 @@ const getTopics = useRequestMethod({
     useAuthGuard(async (req, res) => {
       const topics: TopicType[] = await Topic.find();
 
-      res.json(topics);
+      res.status(200).json(topics);
     }),
   ),
 });

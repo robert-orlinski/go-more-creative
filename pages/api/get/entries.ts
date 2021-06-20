@@ -16,7 +16,7 @@ const getEntries = useRequestMethod({
 
       const entries: EntryType[] = await Entry.find({ userId: user.id });
 
-      res.json(entries);
+      res.status(200).json(entries);
     }),
   ),
 });
