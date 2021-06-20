@@ -1,6 +1,6 @@
 ![](/mockups/main-mockup.jpg?raw=true 'Start page of the app')
 
-# go more creative app ✨
+# GoMoreCreative App ✨
 
 The application was built to help you train your creativity.
 
@@ -14,11 +14,11 @@ And that's the reason I've made this app - to help you (and myself in the future
 
 ## Some screenshots:
 
-![](/app/src/static/mockups/start-page.jpg?raw=true 'Start page of the app')
+![](/mockups/start-page.jpg?raw=true 'Start page of the app')
 
-![](/app/src/static/mockups/adding-new-entry.jpg?raw=true 'Adding new entry')
+![](/mockups/adding-new-entry.jpg?raw=true 'Adding new entry')
 
-![](/app/src/static/mockups/all-entries.jpg?raw=true 'All entries view')
+![](/mockups/all-entries.jpg?raw=true 'All entries view')
 
 ## How can you run it in your local environment?
 
@@ -74,4 +74,4 @@ And that's it for now. Maybe you have some ideas for new features? 😌
 
 ## Contribution
 
-go more creative is an open-source project done for training, so code review or contributions of any kind are welcome and appreciated. Feel free to make `bug`, `code-review`, `enhancement` or `question` requests in the [issues](https://github.com/robert-orlinski/go-more-creative/issues) tab ☀️
+GoMoreCreative is an open-source project done for training, so code review or contributions of any kind are welcome and appreciated. Feel free to make `bug`, `code-review`, `enhancement` or `question` requests in the [issues](https://github.com/robert-orlinski/go-more-creative/issues) tab ☀️
