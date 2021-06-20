@@ -16,8 +16,7 @@ import { SingleField } from './SingleField';
 import styles from './Form.module.scss';
 
 export const Form = () => {
-  const { name: topicName } = useSelector((state: StoreType) => state.topics.currentTopic);
-  const userId = useSelector((state: StoreType) => state.currentUserId);
+  const topic = useSelector((state: StoreType) => state.topics.currentTopic);
 
   const [currentIdeaNumber, setCurrentIdeaNumber] = useState(1);
 
@@ -48,9 +47,8 @@ export const Form = () => {
     const ideasArray = Object.entries(data);
 
     const entry: EntryType = {
-      topic: topicName,
+      topic: topic,
       ideas: ideasArray,
-      userId: userId,
       date: new Date().toISOString(),
     };
 

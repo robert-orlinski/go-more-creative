@@ -10,7 +10,6 @@ import store from '../store';
 
 import { fetchEntries } from '../store/entriesSlice';
 import { fetchTopics } from '../store/topicsSlice';
-import { fetchCurrentUser } from '../store/currentUserSlice';
 
 const App = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
@@ -18,7 +17,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       const session = await getSession();
 
       if (session) {
-        [fetchEntries, fetchTopics, fetchCurrentUser].forEach((actionCreator) => {
+        [fetchEntries, fetchTopics].forEach((actionCreator) => {
           store.dispatch(actionCreator());
         });
       }

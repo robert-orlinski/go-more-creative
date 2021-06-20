@@ -1,10 +1,12 @@
 import mongoose, { model, Model, Schema } from 'mongoose';
 import { EntryType } from '../../../types/global';
 
-const EntrySchema: Schema = new Schema(
+import { TopicSchema } from './Topic';
+
+export const EntrySchema: Schema = new Schema(
   {
     topic: {
-      type: String,
+      type: TopicSchema,
     },
     ideas: {
       type: [[String, String]],

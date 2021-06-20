@@ -7,7 +7,6 @@ import { ListedEntry } from '../ListedEntry';
 
 export const EntriesList = () => {
   const { statusMessage, list } = useSelector((state: StoreType) => state.entries);
-  const currentUserId = useSelector((state: StoreType) => state.currentUserId);
 
   return (
     <>

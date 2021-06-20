@@ -1,7 +1,7 @@
 import mongoose, { model, Model, Schema } from 'mongoose';
 import { TopicType } from '../../../types/global';
 
-const TopicSchema: Schema = new Schema(
+export const TopicSchema: Schema = new Schema(
   {
     name: {
       type: String,

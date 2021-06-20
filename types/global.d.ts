@@ -13,9 +13,8 @@ export interface MongoIdType {
 }
 
 export interface EntryType {
-  topic: string;
+  topic: TopicType;
   ideas: string[][];
-  userId: string;
   date: string;
 }
 

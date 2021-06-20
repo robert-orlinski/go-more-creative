@@ -16,5 +16,4 @@ export interface TopicsType extends statusMessageType {
 export interface StoreType {
   entries: EntriesType;
   topics: TopicsType;
-  currentUserId: string;
 }
