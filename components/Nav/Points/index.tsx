@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 
@@ -13,20 +13,18 @@ import { StoreType } from '../../../store/types';
 export const Points: FC<SelectivelyVisibleElementType> = ({ visibleOnClassName }) => {
   const { list } = useSelector((state: StoreType) => state.entries);
 
-  const [points, setPoints] = useState(0);
+  const points = useMemo(() => {
+    let addedPoints = 0;
 
-  useEffect(() => {
     if (list.length) {
-      let addedPoints = points;
-
       list.forEach(({ topic }) => {
         if (topic.level === 'easy') addedPoints += 10;
         else if (topic.level === 'normal') addedPoints += 20;
         else addedPoints += 30;
       });
-
-      setPoints(addedPoints);
     }
+
+    return addedPoints;
   }, [list]);
 
   return (
