@@ -70,8 +70,8 @@ Front-End:
 2. Add engaging strike and rewrite points algorithm to the one based on topic levels and strike ether.
 3. Add functions that let people add their topics and choose if they want to have it only for themself or share it with the whole community.
 
-And that's it for now. Maybe you have some ideas for new features? 😌
+And that's it for now. Maybe you have some ideas for new features? If yes, you can always propose them in the [issues](https://github.com/robert-orlinski/go-more-creative/issues) tab 😌
 
 ## Contribution
 
-GoMoreCreative is an open-source project done for training, so code review or contributions of any kind are welcome and appreciated. Feel free to make `bug`, `code-review`, `enhancement` or `question` requests in the [issues](https://github.com/robert-orlinski/go-more-creative/issues) tab ☀️
+GoMoreCreative is an open-source project done for training, so code review or contributions of any kind are welcome and appreciated. Feel free to make `bug`, `code-review`, `enhancement`, `feature` or `question` requests in the [issues](https://github.com/robert-orlinski/go-more-creative/issues) tab ☀️
