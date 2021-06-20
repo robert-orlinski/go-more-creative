@@ -16,7 +16,7 @@ export const ListedEntry: FC<ListedEntryType> = ({ _id, topic, ideas, i }) => {
         <span className={styles.indexContainer}>
           <span className={styles.index}>{visibleIndex}</span>
         </span>
-        <span className="highlight">{topic}</span>
+        <span className="highlight">{topic.name}</span>
       </summary>
       <article className={styles.content}>
         <ol className={styles.list}>
