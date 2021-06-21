@@ -36,7 +36,7 @@ npm install
 npm run dev
 ```
 
-What's **important**, you need to put MongoDB Atlas URL in the .env file to make your server working. The cluster associated with this URL needs to have 2 collections: `entries` and `topics`. Additionally, you need to make your own GitHub OAuth app and provide the ID and Secret of that app in the `.env` file.
+What's **important**, you need to put MongoDB Atlas URL in the `.env` file to make your server working (you can copy `.env.example` and change its name to `.env`). The cluster associated with this URL needs to have 2 collections: `entries` and `topics`. Additionally, you need to make your own GitHub OAuth app, provide the ID and Secret of that app in the `.env` file, and put your local URL in the `NEXTAUTH_URL` variable.
 
 If you want to build the project, you can use:
 

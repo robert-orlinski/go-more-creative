@@ -42,7 +42,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           title: meta.title,
           description: meta.description,
           locale: 'pl_PL',
-          url: `https://${process.env.PUBLIC_URL!}${asPath}`,
+          url: `https://${process.env.NEXTAUTH_URL!}${asPath}`,
           site_name: meta.title,
         }}
       />
