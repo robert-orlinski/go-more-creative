@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { Provider as StoreProvider } from 'react-redux';
 import { Provider as SessionProvider, getSession } from 'next-auth/client';
+import { DefaultSeo } from 'next-seo';
+
+import { meta } from '../helpers/metaData';
 
 import '@fontsource/montserrat/700.css';
 import '../styles/main.scss';
@@ -27,11 +30,14 @@ const App = ({ Component, pageProps }: AppProps) => {
   }, []);
 
   return (
-    <SessionProvider session={pageProps.session}>
-      <StoreProvider store={store}>
-        <Component {...pageProps} />
-      </StoreProvider>
-    </SessionProvider>
+    <>
+      <DefaultSeo title={meta.title} description={meta.description} />
+      <SessionProvider session={pageProps.session}>
+        <StoreProvider store={store}>
+          <Component {...pageProps} />
+        </StoreProvider>
+      </SessionProvider>
+    </>
   );
 };
 

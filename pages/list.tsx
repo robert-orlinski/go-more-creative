@@ -7,7 +7,7 @@ import { MainWrapper } from '../components/MainWrapper';
 import { EntriesList } from '../components/EntriesList';
 
 const List = () => (
-  <Layout>
+  <Layout pageName="past entries">
     <AuthGuard>
       <MainWrapper>
         <MainTitle>here you can check all your past ideas!</MainTitle>

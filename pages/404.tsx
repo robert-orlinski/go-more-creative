@@ -6,7 +6,7 @@ import { MainWrapper } from '../components/MainWrapper';
 import { LinkButton } from '../components/Button/Link';
 
 const List = () => (
-  <Layout>
+  <Layout pageName="404">
     <MainWrapper theme="center">
       <MainTitle>oh, 404</MainTitle>
       <p className="textCenter marginBottomL">

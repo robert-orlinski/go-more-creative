@@ -14,7 +14,7 @@ const Practice = () => {
   const { name: topicName } = useSelector((state: StoreType) => state.topics.currentTopic);
 
   return (
-    <Layout>
+    <Layout pageName="practice 🔥">
       <AuthGuard>
         <MainWrapper theme="center">
           <MainTitle>
