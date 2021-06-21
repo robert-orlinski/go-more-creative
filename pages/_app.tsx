@@ -41,7 +41,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           type: 'website',
           title: meta.title,
           description: meta.description,
-          locale: 'pl_PL',
+          locale: 'en_GB',
           url: `https://${process.env.NEXTAUTH_URL!}${asPath}`,
           site_name: meta.title,
         }}
