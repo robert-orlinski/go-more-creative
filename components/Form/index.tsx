@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Fragment, useCallback, useState } from 'react';
+import { useRouter } from 'next/router';
+import { Fragment, useState } from 'react';
 import { useForm, SubmitHandler, FieldValues } from 'react-hook-form';
 import classNames from 'classnames';
 
@@ -17,10 +18,9 @@ import styles from './Form.module.scss';
 
 export const Form = () => {
   const topic = useSelector((state: StoreType) => state.topics.currentTopic);
-
   const [currentIdeaNumber, setCurrentIdeaNumber] = useState(1);
-
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const {
     setError,
@@ -32,16 +32,14 @@ export const Form = () => {
     mode: 'onChange',
   });
 
-  const goToPrevField = useCallback(() => {
-    setCurrentIdeaNumber(currentIdeaNumber - 1);
-  }, [currentIdeaNumber]);
+  const goToPrevField = () => setCurrentIdeaNumber(currentIdeaNumber - 1);
 
-  const goToNextField = useCallback(async () => {
+  const goToNextField = async () => {
     const isFieldValid = await trigger(`idea${currentIdeaNumber}`);
     if (!isFieldValid) return;
 
     setCurrentIdeaNumber(currentIdeaNumber + 1);
-  }, [currentIdeaNumber]);
+  };
 
   const saveFormResult: SubmitHandler<FieldValues> = async (data) => {
     const ideasArray = Object.entries(data);
@@ -53,6 +51,8 @@ export const Form = () => {
     };
 
     dispatch(addEntry(entry, setError));
+
+    if (!errors.form) router.push('/');
   };
 
   return (

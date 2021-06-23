@@ -1,5 +1,4 @@
 import { Dispatch } from 'react';
-import Router from 'next/router';
 import { FieldValues, UseFormSetError } from 'react-hook-form';
 
 import { addEntryToApi } from '../utils/requests';
@@ -18,8 +17,6 @@ export const addEntry =
     const isEntrySaved = saveEntry.ok;
 
     if (isEntrySaved) {
-      Router.push('/');
-
       dispatch(add(savedEntry));
       dispatch(selectRandom());
     } else {
