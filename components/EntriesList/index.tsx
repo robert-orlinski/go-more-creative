@@ -12,7 +12,7 @@ export const EntriesList = () => {
     <>
       {statusMessage ? (
         <article className="center">
-          <p className="textCenter marginBottomM">Loading...</p>
+          <p className="textCenter marginBottomM">{statusMessage}</p>
         </article>
       ) : list.length > 0 ? (
         list.map(({ _id, topic, ideas }, i) => (
