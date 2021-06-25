@@ -3,6 +3,7 @@ import { render, fireEvent, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 
 import store from '../../store';
+
 import { Form } from '.';
 
 describe('render', () => {
@@ -81,7 +82,8 @@ describe('going to the next step', () => {
 
 describe('going to the previous step', () => {
   it('goes to the previous step if current is not the first one and can not go to the previous once more (since is on the first one)', async () => {
-    jest.spyOn(React, 'useState').mockImplementationOnce(() => useState<unknown>(2));
+    const spy = jest.spyOn(React, 'useState');
+    spy.mockImplementationOnce(() => useState<unknown>(2));
 
     const { getByTestId, getByText, queryByTestId } = render(
       <Provider store={store}>
@@ -102,7 +104,8 @@ describe('going to the previous step', () => {
 
 describe('finishing', () => {
   it('can click the "finished!" button when its on the last step', async () => {
-    jest.spyOn(React, 'useState').mockImplementationOnce(() => useState<unknown>(10));
+    const spy = jest.spyOn(React, 'useState');
+    spy.mockImplementationOnce(() => useState<unknown>(10));
 
     const { getByText } = render(
       <Provider store={store}>
