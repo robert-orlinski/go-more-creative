@@ -3,7 +3,7 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import entriesReducer from './entriesSlice';
 import topicsReducer from './topicsSlice';
 
-const reducer = combineReducers({
+export const reducer = combineReducers({
   entries: entriesReducer,
   topics: topicsReducer,
 });

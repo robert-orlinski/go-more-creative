@@ -11,8 +11,11 @@ export const ListedEntry: FC<ListedEntryType> = ({ _id, topic, ideas, i }) => {
   const visibleIndex = (i < 9 ? '0' : '') + `${++i}.`;
 
   return (
-    <details className={styles.entry}>
-      <summary className={classNames('cursorPointer', styles.title)}>
+    <details className={styles.entry} data-testid={`entry-container-${i}`}>
+      <summary
+        className={classNames('cursorPointer', styles.title)}
+        data-testid={`entry-header-${i}`}
+      >
         <span className={styles.indexContainer}>
           <span className={styles.index}>{visibleIndex}</span>
         </span>
@@ -26,7 +29,7 @@ export const ListedEntry: FC<ListedEntryType> = ({ _id, topic, ideas, i }) => {
             </li>
           ))}
         </ol>
-        <DeleteButton _id={_id} />
+        <DeleteButton _id={_id} testId={`delete-entry-button-${i}`} />
       </article>
     </details>
   );

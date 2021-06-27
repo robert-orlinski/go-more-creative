@@ -1,0 +1,15 @@
+{
+  "entries": {
+    "list": [],
+    "statusMessage": "loading..."
+  },
+  "topics": {
+    "list": [],
+    "currentTopic": {
+      "_id": "",
+      "name": "",
+      "level": "easy"
+    },
+    "statusMessage": "loading..."
+  }
+}

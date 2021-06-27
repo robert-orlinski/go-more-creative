@@ -1,15 +1,19 @@
 import { DeepMap, FieldError, FieldValues, UseFormRegister } from 'react-hook-form';
 
+export interface TestIdType {
+  testId?: string;
+}
+
+export interface MongoIdType {
+  _id: string;
+}
+
 export interface SelectivelyVisibleElementType {
   visibleOnClassName:
     | 'visibleOnNarrowerThanMobile'
     | 'visibleOnWiderThanMobile'
     | 'visibleOnNarrowerThanTablet'
     | 'visibleOnWiderThanTablet';
-}
-
-export interface MongoIdType {
-  _id: string;
 }
 
 export interface EntryType {
