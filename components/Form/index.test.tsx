@@ -1,81 +1,64 @@
 import React, { useState } from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
-import { Provider } from 'react-redux';
 
-import store from '../../store';
+import { screen, fireEvent, waitFor } from '@testing-library/react';
+
+import { storeBasedRender } from '../../helpers/tests/testUtils';
+import fulfilledStore from '../../__mocks__/store/fulfilled.json';
 
 import { Form } from '.';
 
 describe('render', () => {
   it('renders component', () => {
-    const { getByText } = render(
-      <Provider store={store}>
-        <Form />
-      </Provider>,
-    );
+    storeBasedRender(<Form />, { preloadedState: fulfilledStore });
 
-    expect(getByText('first idea:')).toBeInTheDocument();
+    expect(screen.getByText('first idea:')).toBeInTheDocument();
   });
 });
 
 describe('going to the next step', () => {
   it('goes to the next step if current input is filled with text', async () => {
-    const { getByTestId, getByText } = render(
-      <Provider store={store}>
-        <Form />
-      </Provider>,
-    );
+    storeBasedRender(<Form />, { preloadedState: fulfilledStore });
 
-    const input = getByTestId('idea1');
-    const nextButton = getByTestId('next');
+    const input = screen.getByTestId('idea1');
+    const nextButton = screen.getByTestId('next');
 
     fireEvent.change(input, { target: { value: 'test idea' } });
     fireEvent.click(nextButton);
 
-    const desirableText = await waitFor(() => getByText('nice! second idea:'));
+    const desirableText = await waitFor(() => screen.getByText('nice! second idea:'));
     expect(desirableText).toBeInTheDocument();
   });
 
   it('goes to the next step when clicks enter and input is filled', async () => {
-    const { getByText, getByTestId } = render(
-      <Provider store={store}>
-        <Form />
-      </Provider>,
-    );
+    storeBasedRender(<Form />, { preloadedState: fulfilledStore });
 
-    const input = getByTestId('idea1');
+    const input = screen.getByTestId('idea1');
 
     fireEvent.change(input, { target: { value: 'test idea' } });
     fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' });
 
-    const desirableText = await waitFor(() => getByText('nice! second idea:'));
+    const desirableText = await waitFor(() => screen.getByText('nice! second idea:'));
     expect(desirableText).toBeInTheDocument();
   });
 
   it('can not go to the next step if this is the 10th one', async () => {
     jest.spyOn(React, 'useState').mockImplementationOnce(() => useState<unknown>(10));
 
-    const { queryByTestId } = render(
-      <Provider store={store}>
-        <Form />
-      </Provider>,
-    );
+    storeBasedRender(<Form />, { preloadedState: fulfilledStore });
 
-    expect(queryByTestId('next')).toBeNull();
+    expect(screen.queryByTestId('next')).toBeNull();
   });
 
   it('can not go to the next step input is not filled', async () => {
-    const { getByText, getByTestId } = render(
-      <Provider store={store}>
-        <Form />
-      </Provider>,
-    );
+    storeBasedRender(<Form />, { preloadedState: fulfilledStore });
 
-    const nextButton = getByTestId('next');
+    const nextButton = screen.getByTestId('next');
 
     fireEvent.click(nextButton);
 
-    const desirableText = await waitFor(() => getByText('you need to write down this idea 🚀'));
+    const desirableText = await waitFor(() =>
+      screen.getByText('you need to write down this idea 🚀'),
+    );
     expect(desirableText).toBeInTheDocument();
   });
 });
@@ -85,20 +68,15 @@ describe('going to the previous step', () => {
     const spy = jest.spyOn(React, 'useState');
     spy.mockImplementationOnce(() => useState<unknown>(2));
 
-    const { getByTestId, getByText, queryByTestId } = render(
-      <Provider store={store}>
-        <Form />
-      </Provider>,
-    );
+    storeBasedRender(<Form />, { preloadedState: fulfilledStore });
 
-    const prevButton = getByTestId('prev');
+    const prevButton = screen.getByTestId('prev');
 
     fireEvent.click(prevButton);
 
-    const desirableText = await waitFor(() => getByText('first idea:'));
+    const desirableText = await waitFor(() => screen.getByText('first idea:'));
     expect(desirableText).toBeInTheDocument();
-
-    expect(queryByTestId('prev')).toBeNull();
+    expect(screen.queryByTestId('prev')).toBeNull();
   });
 });
 
@@ -107,13 +85,9 @@ describe('finishing', () => {
     const spy = jest.spyOn(React, 'useState');
     spy.mockImplementationOnce(() => useState<unknown>(10));
 
-    const { getByText } = render(
-      <Provider store={store}>
-        <Form />
-      </Provider>,
-    );
+    storeBasedRender(<Form />, { preloadedState: fulfilledStore });
 
-    const desirableText = await waitFor(() => getByText('finished!'));
+    const desirableText = await waitFor(() => screen.getByText('finished!'));
     expect(desirableText).toBeInTheDocument();
   });
 });

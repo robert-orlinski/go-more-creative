@@ -3,11 +3,11 @@ import React from 'react';
 import { screen, waitForElementToBeRemoved } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { EntriesList } from '.';
 import { storeBasedRender } from '../../helpers/tests/testUtils';
-
 import fulfilledStore from '../../__mocks__/store/fulfilled.json';
 import pendingStore from '../../__mocks__/store/pending.json';
+
+import { EntriesList } from '.';
 
 describe('results render', () => {
   it('renders status message when there is any', () => {
