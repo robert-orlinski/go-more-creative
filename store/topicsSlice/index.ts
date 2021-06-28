@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
-import { getTopicsFromApi } from '../utils/requests';
+import { getTopicsFromApi } from '../../utils/requests';
 
-import { getRandomItemFromArray } from '../helpers/functions';
-import { TopicsType } from './types';
+import { getRandomItemFromArray } from '../../helpers/functions';
+import { TopicsType } from '../types';
 
 const statusMessages = {
   pending: 'loading...',

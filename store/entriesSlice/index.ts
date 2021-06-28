@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
-import { getEntriesFromApi } from '../utils/requests';
+import { getEntriesFromApi } from '../../utils/requests';
 
-import { FetchedEntryType } from '../types/global';
-import { EntriesType } from './types';
+import { FetchedEntryType } from '../../types/global';
+import { EntriesType } from '../types';
 
 const statusMessages = {
   pending: 'loading...',
