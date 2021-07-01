@@ -22,6 +22,8 @@ And that's the reason I've made this app - to help you (and myself in the future
 
 ## How can you run it in your local environment?
 
+> To be clear - I am using node 14.16, but the app works when using newer versions too (been testing it on 16.4.1, for instance).
+
 Copy the repo:
 
 ```
