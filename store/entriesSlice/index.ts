@@ -5,13 +5,13 @@ import { getEntriesFromApi } from '../../utils/requests';
 import { FetchedEntryType } from '../../types/global';
 import { EntriesType } from '../types';
 
-const statusMessages = {
+export const statusMessages = {
   pending: 'loading...',
   fulfilled: undefined,
   rejected: "couldn't fetch entries. are you sure that everything is ok with your database?",
 };
 
-const initialState: EntriesType = {
+export const initialState: EntriesType = {
   list: [],
   statusMessage: statusMessages.pending,
 };

@@ -3,10 +3,10 @@ import React from 'react';
 import { screen, waitForElementToBeRemoved } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import { storeBasedRender } from '../../helpers/tests/testUtils';
 import fulfilledStore from '../../__mocks__/store/fulfilled.json';
 import pendingStore from '../../__mocks__/store/pending.json';
 
+import { storeBasedRender } from '../../helpers/tests/testUtils';
 import { EntriesList } from '.';
 
 describe('results render', () => {
