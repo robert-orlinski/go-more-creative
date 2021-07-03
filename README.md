@@ -10,7 +10,7 @@ When I was using this approach, sometimes the topic of my today 10 ideas was jus
 
 And that's the reason, I was like: "It would be much more effective to get random topics that do not come from my head and about which I do not think at all, and as a result even more creative by making ideas".
 
-And that's the reason I've made this app - to help you (and myself in the future, thanks to the features I want to add to it, listed at the end) in writing ideas for random topics and write them with more motivation due to points and strike features.
+And that's the reason I've made this app - to help you (and myself in the future, thanks to the features I want to add to it, listed at the end) in writing ideas for random topics and write them with more motivation due to points and streak features.
 
 ## Some screenshots:
 
@@ -69,7 +69,7 @@ Front-End:
 ## What's next?
 
 1. Cover crucial functionalities with tests.
-2. Add engaging strike and rewrite points algorithm to the one based on topic levels and strike ether.
+2. Add engaging streak and rewrite points algorithm to the one based on topic levels and streak ether.
 3. Add functions that let people add their topics and choose if they want to have it only for themself or share it with the whole community.
 
 And that's it for now. Maybe you have some ideas for new features? If yes, you can always propose them in the [issues](https://github.com/robert-orlinski/go-more-creative/issues) tab 😌
