@@ -1,17 +1,17 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { getTopicsFromApi } from '../../utils/requests';
 
 import { getRandomItemFromArray } from '../../helpers/functions';
 import { TopicsType } from '../types';
 
-const statusMessages = {
+export const statusMessages = {
   pending: 'loading...',
   fulfilled: undefined,
   rejected: "couldn't fetch topics.",
 };
 
-const initialState: TopicsType = {
+export const initialState: TopicsType = {
   list: [],
   currentTopic: {
     _id: '',

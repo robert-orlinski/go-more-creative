@@ -1,3 +1,4 @@
+import { configureStore } from '@reduxjs/toolkit';
 import fetch from 'jest-fetch-mock';
 
 import mockedEntriesArray from '../../__mocks__/entries/multiple.json';
@@ -8,7 +9,6 @@ import { initialState, add, remove, fetchEntries, statusMessages } from '.';
 import { reducer } from '../';
 
 import { FetchedEntryType } from '../../types/global';
-import { configureStore } from '@reduxjs/toolkit';
 
 let testedStore: any;
 
