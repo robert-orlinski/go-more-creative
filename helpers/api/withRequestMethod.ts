@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 type RequestMethodsType = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
-export const useRequestMethod =
+export const withRequestMethod =
   (
     possibleMethods: {
       readonly [key in RequestMethodsType]?: (req: NextApiRequest, res: NextApiResponse) => unknown;

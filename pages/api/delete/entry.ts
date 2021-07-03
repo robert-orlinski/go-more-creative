@@ -1,9 +1,9 @@
 import { Entry } from '../../../helpers/api/Models/Entry';
-import { useDatabase } from '../../../helpers/api/useDatabase';
-import { useRequestMethod } from '../../../helpers/api/useRequestMethod';
+import { withDatabase } from '../../../helpers/api/withDatabase';
+import { withRequestMethod } from '../../../helpers/api/withRequestMethod';
 
-const deleteEntry = useRequestMethod({
-  DELETE: useDatabase(async (req, res) => {
+const deleteEntry = withRequestMethod({
+  DELETE: withDatabase(async (req, res) => {
     const { _id } = JSON.parse(req.body);
     await Entry.deleteOne({ _id });
 

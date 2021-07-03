@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getSession } from 'next-auth/client';
 
-export const useAuthGuard =
+export const withAuthGuard =
   (handler: (req: NextApiRequest, res: NextApiResponse) => unknown) =>
   async (req: NextApiRequest, res: NextApiResponse) => {
     const session = await getSession({ req });
