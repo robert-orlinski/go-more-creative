@@ -83,6 +83,7 @@ describe('actions', () => {
   });
 
   it('removes entry on "entryRemoved" action', () => {
+    testedStore.dispatch(entryAdded(mockedEntry as FetchedEntryType));
     testedStore.dispatch(entryRemoved('entry-1'));
 
     const entriesSliceData = testedStore.getState().entries;

@@ -7,7 +7,7 @@ import classNames from 'classnames';
 
 import { addEntry } from '../../actions/addEntry';
 
-import { EntryType } from '../../types/global';
+import { EntryTypeToAdd } from '../../types/global';
 import { StoreType } from '../../store/types';
 
 import { Buttons } from './Buttons';
@@ -44,7 +44,7 @@ export const Form = () => {
   const saveFormResult: SubmitHandler<FieldValues> = async (data) => {
     const ideasArray = Object.entries(data);
 
-    const entry: EntryType = {
+    const entry: EntryTypeToAdd = {
       topic: topic,
       ideas: ideasArray,
       date: new Date().toISOString(),

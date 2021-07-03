@@ -16,10 +16,13 @@ export interface SelectivelyVisibleElementType {
     | 'visibleOnWiderThanTablet';
 }
 
-export interface EntryType {
+export interface EntryTypeToAdd {
   topic: TopicType;
   ideas: string[][];
   date: string;
+}
+
+export interface EntryType extends EntryTypeToAdd {
   pointsGained: number;
 }
 
