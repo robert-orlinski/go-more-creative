@@ -18,6 +18,9 @@ export const EntrySchema: Schema = new Schema(
       type: Date,
       default: Date.now,
     },
+    pointsGained: {
+      type: Number,
+    },
   },
   {
     collection: 'entries',

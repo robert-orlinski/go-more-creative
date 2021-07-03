@@ -11,21 +11,7 @@ import { SelectivelyVisibleElementType } from '../../../types/global';
 import { StoreType } from '../../../store/types';
 
 export const Points: FC<SelectivelyVisibleElementType> = ({ visibleOnClassName }) => {
-  const { list } = useSelector((state: StoreType) => state.entries);
-
-  const points = useMemo(() => {
-    let addedPoints = 0;
-
-    if (list.length) {
-      list.forEach(({ topic }) => {
-        if (topic.level === 'easy') addedPoints += 10;
-        else if (topic.level === 'normal') addedPoints += 20;
-        else addedPoints += 30;
-      });
-    }
-
-    return addedPoints;
-  }, [list]);
+  const { points } = useSelector((state: StoreType) => state.points);
 
   return (
     <ul className={classNames('flex unstyledList', visibleOnClassName)}>

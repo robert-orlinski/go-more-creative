@@ -5,7 +5,7 @@ import mockedTopicsArray from '../../__mocks__/topics/multiple.json';
 import mockedTopic from '../../__mocks__/topics/single.json';
 
 import * as helperFunctions from '../../helpers/functions';
-import { initialState, selectRandom, fetchTopics, statusMessages } from '../topicsSlice';
+import { initialState, selectedRandomTopic, fetchTopics, statusMessages } from '../topicsSlice';
 
 import { reducer } from '..';
 
@@ -75,8 +75,8 @@ describe('extra reducers', () => {
 });
 
 describe('actions', () => {
-  it('selects a random topic as the current topic on "selectRandom" action', () => {
-    testedStore.dispatch(selectRandom());
+  it('selects a random topic as the current topic on "selectedRandomTopic" action', () => {
+    testedStore.dispatch(selectedRandomTopic());
 
     const entriesSliceData = testedStore.getState().topics;
     expect(entriesSliceData).toEqual({

@@ -4,7 +4,7 @@ import fetch from 'jest-fetch-mock';
 import mockedEntriesArray from '../../__mocks__/entries/multiple.json';
 import mockedEntry from '../../__mocks__/entries/single.json';
 
-import { initialState, add, remove, fetchEntries, statusMessages } from '.';
+import { initialState, entryAdded, entryRemoved, fetchEntries, statusMessages } from '.';
 
 import { reducer } from '../';
 
@@ -72,8 +72,8 @@ describe('extra reducers', () => {
 });
 
 describe('actions', () => {
-  it('adds entry on "add" action', () => {
-    testedStore.dispatch(add(mockedEntry as FetchedEntryType));
+  it('adds entry on "entryAdded" action', () => {
+    testedStore.dispatch(entryAdded(mockedEntry as FetchedEntryType));
 
     const entriesSliceData = testedStore.getState().entries;
     expect(entriesSliceData).toEqual({
@@ -82,8 +82,8 @@ describe('actions', () => {
     });
   });
 
-  it('removes entry on "remove" action', () => {
-    testedStore.dispatch(remove('entry-1'));
+  it('removes entry on "entryRemoved" action', () => {
+    testedStore.dispatch(entryRemoved('entry-1'));
 
     const entriesSliceData = testedStore.getState().entries;
     expect(entriesSliceData).toEqual(initialState);

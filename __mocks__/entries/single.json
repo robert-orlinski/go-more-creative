@@ -14,6 +14,7 @@
   "_id": "entry-1",
   "topic": { "_id": "topic-1", "name": "topic 1", "level": "easy" },
   "date": "2021-06-20T18:15:54.679Z",
+  "pointsGained": 10,
   "userId": "60ccd0b15aac7d251c53ab00",
   "__v": 0
 }

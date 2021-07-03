@@ -15,8 +15,15 @@ export const EntriesList = () => {
           <p className="textCenter marginBottomM">{statusMessage}</p>
         </article>
       ) : list.length > 0 ? (
-        list.map(({ _id, topic, ideas }, i) => (
-          <ListedEntry _id={_id} topic={topic} ideas={ideas} i={i} key={_id} />
+        list.map(({ _id, topic, ideas, pointsGained }, i) => (
+          <ListedEntry
+            _id={_id}
+            topic={topic}
+            ideas={ideas}
+            pointsGained={pointsGained}
+            i={i}
+            key={_id}
+          />
         ))
       ) : (
         <article className="center">

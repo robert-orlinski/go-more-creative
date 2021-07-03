@@ -13,7 +13,12 @@ export interface TopicsType extends statusMessageType {
   currentTopic: TopicType;
 }
 
+export interface PointsType extends statusMessageType {
+  points: number;
+}
+
 export interface StoreType {
   entries: EntriesType;
   topics: TopicsType;
+  points: PointsType;
 }

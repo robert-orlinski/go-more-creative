@@ -20,6 +20,7 @@ export interface EntryType {
   topic: TopicType;
   ideas: string[][];
   date: string;
+  pointsGained: number;
 }
 
 export type FetchedEntryType = MongoIdType & EntryType;

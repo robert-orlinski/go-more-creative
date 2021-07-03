@@ -14,7 +14,15 @@ const addEntry = withRequestMethod({
     const { user } = (await getSession({ req })) as Session;
 
     const data: EntryType = JSON.parse(req.body);
-    const newEntry = new Entry({ ...data, userId: Types.ObjectId(user.id) });
+
+    const pointsForTheTopicLevel =
+      data.topic.level === 'easy' ? 10 : data.topic.level === 'normal' ? 20 : 30;
+
+    const newEntry = new Entry({
+      ...data,
+      userId: Types.ObjectId(user.id),
+      pointsGained: pointsForTheTopicLevel,
+    });
 
     await newEntry.save();
 

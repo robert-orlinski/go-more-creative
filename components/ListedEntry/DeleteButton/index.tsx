@@ -7,11 +7,15 @@ import { MongoIdType, TestIdType } from '../../../types/global';
 
 import { ClassicButton } from '../../Button/Classic';
 
-export const DeleteButton: FC<MongoIdType & TestIdType> = ({ _id, testId }) => {
+export const DeleteButton: FC<MongoIdType & TestIdType & { pointsToRemove: number }> = ({
+  _id,
+  pointsToRemove,
+  testId,
+}) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteEntry(_id));
+    dispatch(deleteEntry(_id, pointsToRemove));
   };
 
   return (

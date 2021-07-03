@@ -32,7 +32,7 @@ const slice = createSlice({
   name: 'topics',
   initialState,
   reducers: {
-    selectRandom: (state) => ({
+    selectedRandomTopic: (state) => ({
       ...state,
       currentTopic: getRandomItemFromArray(state.list),
     }),
@@ -54,6 +54,6 @@ const slice = createSlice({
       })),
 });
 
-export const { selectRandom } = slice.actions;
+export const { selectedRandomTopic } = slice.actions;
 
 export default slice.reducer;
