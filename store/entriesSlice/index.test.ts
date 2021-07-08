@@ -4,7 +4,7 @@ import fetch from 'jest-fetch-mock';
 import mockedEntriesArray from '../../__mocks__/entries/multiple.json';
 import mockedEntry from '../../__mocks__/entries/single.json';
 
-import { initialState, entryAdded, entryRemoved, fetchEntries, statusMessages } from '.';
+import { initialState, entryAdded, fetchEntries, statusMessages } from '.';
 
 import { reducer } from '../';
 
@@ -80,13 +80,5 @@ describe('actions', () => {
       ...entriesSliceData,
       list: [mockedEntry],
     });
-  });
-
-  it('removes entry on "entryRemoved" action', () => {
-    testedStore.dispatch(entryAdded(mockedEntry as FetchedEntryType));
-    testedStore.dispatch(entryRemoved('entry-1'));
-
-    const entriesSliceData = testedStore.getState().entries;
-    expect(entriesSliceData).toEqual(initialState);
   });
 });

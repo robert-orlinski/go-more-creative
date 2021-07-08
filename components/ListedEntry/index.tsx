@@ -5,9 +5,7 @@ import styles from './ListedEntry.module.scss';
 
 import { ListedEntryType } from '../../types/global';
 
-import { DeleteButton } from './DeleteButton';
-
-export const ListedEntry: FC<ListedEntryType> = ({ _id, topic, ideas, pointsGained, i }) => {
+export const ListedEntry: FC<ListedEntryType> = ({ _id, topic, ideas, i }) => {
   const visibleIndex = (i < 9 ? '0' : '') + `${++i}.`;
 
   return (
@@ -29,7 +27,6 @@ export const ListedEntry: FC<ListedEntryType> = ({ _id, topic, ideas, pointsGain
             </li>
           ))}
         </ol>
-        <DeleteButton _id={_id} pointsToRemove={pointsGained} testId={`delete-entry-button-${i}`} />
       </article>
     </details>
   );

@@ -9,9 +9,3 @@ export const addEntryToApi = async (data: EntryTypeToAdd) =>
     method: 'POST',
     body: JSON.stringify(data),
   });
-
-export const deleteEntryFromApi = async (_id: string) =>
-  await fetch('/api/delete/entry', {
-    method: 'DELETE',
-    body: JSON.stringify({ _id }),
-  });

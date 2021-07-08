@@ -23,10 +23,6 @@ const slice = createSlice({
       ...state,
       points: state.points + payload,
     }),
-    pointsRemoved: (state, { payload }: PayloadAction<number>) => ({
-      ...state,
-      points: state.points - payload,
-    }),
   },
   extraReducers: (builder) =>
     builder
@@ -44,6 +40,6 @@ const slice = createSlice({
       })),
 });
 
-export const { pointsAdded, pointsRemoved } = slice.actions;
+export const { pointsAdded } = slice.actions;
 
 export default slice.reducer;

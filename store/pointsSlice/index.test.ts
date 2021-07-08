@@ -4,7 +4,7 @@ import fetch from 'jest-fetch-mock';
 import mockedEntriesArray from '../../__mocks__/entries/multiple.json';
 
 import { fetchEntries } from '../entriesSlice';
-import { initialState, pointsAdded, pointsRemoved, statusMessages } from '.';
+import { initialState, pointsAdded, statusMessages } from '.';
 
 import { reducer } from '..';
 
@@ -77,16 +77,6 @@ describe('actions', () => {
     expect(pointsSliceData).toEqual({
       ...pointsSliceData,
       points: 10,
-    });
-  });
-
-  it('removes points on "pointsRemoved" action', () => {
-    testedStore.dispatch(pointsRemoved(10));
-
-    const pointsSliceData = testedStore.getState().points;
-    expect(pointsSliceData).toEqual({
-      ...initialState,
-      points: -10,
     });
   });
 });

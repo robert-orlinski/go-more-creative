@@ -30,10 +30,6 @@ const slice = createSlice({
     entryAdded: ({ list }, { payload }: PayloadAction<FetchedEntryType>) => {
       list.push(payload);
     },
-    entryRemoved: (state, { payload }: PayloadAction<string>) => ({
-      ...state,
-      list: state.list.filter(({ _id }) => _id !== payload),
-    }),
   },
   extraReducers: (builder) =>
     builder
@@ -51,6 +47,6 @@ const slice = createSlice({
       })),
 });
 
-export const { entryAdded, entryRemoved } = slice.actions;
+export const { entryAdded } = slice.actions;
 
 export default slice.reducer;

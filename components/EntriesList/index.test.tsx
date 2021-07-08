@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import fulfilledStore from '../../__mocks__/store/fulfilled.json';
@@ -44,16 +44,5 @@ describe('user interactions with the list', () => {
     userEvent.click(firstEntryHeader);
 
     expect(firstEntryContainer).toHaveAttribute('open');
-  });
-
-  it('deletes first entry on delete button click', async () => {
-    const { queryByText } = storeBasedRender(<EntriesList />, {
-      preloadedState: fulfilledStore,
-    });
-
-    const deleteButton = screen.getByTestId('delete-entry-button-3');
-    userEvent.click(deleteButton);
-
-    await waitForElementToBeRemoved(queryByText('topic 3'));
   });
 });
