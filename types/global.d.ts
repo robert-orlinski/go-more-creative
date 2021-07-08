@@ -24,11 +24,12 @@ export interface EntryTypeToAdd {
 
 export interface EntryType extends EntryTypeToAdd {
   pointsGained: number;
+  streak: number;
 }
 
 export type FetchedEntryType = MongoIdType & EntryType;
 
-export type ListedEntryType = Omit<FetchedEntryType, 'date' | 'userId'> & {
+export type ListedEntryType = Omit<FetchedEntryType, 'date' | 'userId' | 'streak'> & {
   i: number;
 };
 

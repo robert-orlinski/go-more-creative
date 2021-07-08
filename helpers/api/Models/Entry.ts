@@ -21,6 +21,9 @@ export const EntrySchema: Schema = new Schema(
     pointsGained: {
       type: Number,
     },
+    streak: {
+      type: Number,
+    },
   },
   {
     collection: 'entries',

@@ -17,8 +17,13 @@ export interface PointsType extends statusMessageType {
   points: number;
 }
 
+export interface StreakType extends statusMessageType {
+  streak: number;
+}
+
 export interface StoreType {
   entries: EntriesType;
   topics: TopicsType;
   points: PointsType;
+  streak: StreakType;
 }

@@ -7,6 +7,7 @@ import { EntryTypeToAdd, FetchedEntryType } from '../types/global';
 
 import { entryAdded } from '../store/entriesSlice';
 import { pointsAdded } from '../store/pointsSlice';
+import { streakUpdated } from '../store/streakSlice';
 import { selectedRandomTopic } from '../store/topicsSlice';
 
 export const addEntry =
@@ -16,11 +17,12 @@ export const addEntry =
     const savedEntry = await saveEntry.json();
 
     const isEntrySaved = saveEntry.ok;
-    const { pointsGained } = savedEntry;
+    const { pointsGained, streak } = savedEntry;
 
     if (isEntrySaved) {
       dispatch(entryAdded(savedEntry));
       dispatch(pointsAdded(pointsGained));
+      dispatch(streakUpdated(streak));
       dispatch(selectedRandomTopic());
     } else {
       const errorMessage = await saveEntry.text();
