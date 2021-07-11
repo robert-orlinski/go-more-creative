@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { Provider as StoreProvider } from 'react-redux';
 import { Provider as SessionProvider, getSession } from 'next-auth/client';

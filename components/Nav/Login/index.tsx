@@ -1,4 +1,3 @@
-import React from 'react';
 import { signIn } from 'next-auth/client';
 import classNames from 'classnames';
 
