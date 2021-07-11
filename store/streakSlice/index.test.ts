@@ -3,8 +3,8 @@ import fetch from 'jest-fetch-mock';
 
 import mockedEntriesArray from '../../__mocks__/entries/multiple.json';
 
+import { initialState, streakUpdated, statusMessages } from '../streakSlice';
 import { fetchEntries } from '../entriesSlice';
-import { initialState, pointsAdded, statusMessages } from '.';
 
 import { reducer } from '..';
 
@@ -16,22 +16,22 @@ beforeEach(() => {
 
 describe('initial state', () => {
   it('have initial state on first render', () => {
-    const pointsSliceData = testedStore.getState().points;
+    const streakSliceData = testedStore.getState().streak;
 
-    expect(pointsSliceData).toEqual(initialState);
+    expect(streakSliceData).toEqual(initialState);
   });
 });
 
 describe('thunks', () => {
-  it('adds points to the store on successful thunk resolve and displays proper message', async () => {
+  it('adds streak to the store on successful thunk resolve and displays proper message', async () => {
     fetch.mockResponse(JSON.stringify(mockedEntriesArray));
 
     await testedStore.dispatch(fetchEntries());
 
-    const pointsSliceData = testedStore.getState().points;
+    const streakSliceData = testedStore.getState().streak;
 
-    expect(pointsSliceData).toEqual({
-      points: 140,
+    expect(streakSliceData).toEqual({
+      streak: 3,
       statusMessage: statusMessages.fulfilled,
     });
   });
@@ -41,18 +41,18 @@ describe('extra reducers', () => {
   it('returns initial state with pending message when pending extra reducer is at work', async () => {
     await testedStore.dispatch({ type: fetchEntries.pending.type });
 
-    const pointsSliceData = testedStore.getState().points;
+    const streakSliceData = testedStore.getState().streak;
 
-    expect(pointsSliceData).toEqual(initialState);
+    expect(streakSliceData).toEqual(initialState);
   });
 
   it('returns initial state with fullfiled message when fullfiled extra reducer is at work', async () => {
     await testedStore.dispatch({ type: fetchEntries.fulfilled.type, payload: mockedEntriesArray });
 
-    const pointsSliceData = testedStore.getState().points;
+    const streakSliceData = testedStore.getState().streak;
 
-    expect(pointsSliceData).toEqual({
-      points: 140,
+    expect(streakSliceData).toEqual({
+      streak: 3,
       statusMessage: statusMessages.fulfilled,
     });
   });
@@ -60,9 +60,9 @@ describe('extra reducers', () => {
   it('returns initial state with rejected message when rejected extra reducer is at work', async () => {
     await testedStore.dispatch({ type: fetchEntries.rejected.type });
 
-    const pointsSliceData = testedStore.getState().points;
+    const streakSliceData = testedStore.getState().streak;
 
-    expect(pointsSliceData).toEqual({
+    expect(streakSliceData).toEqual({
       ...initialState,
       statusMessage: statusMessages.rejected,
     });
@@ -70,13 +70,13 @@ describe('extra reducers', () => {
 });
 
 describe('actions', () => {
-  it('adds points on "pointsAdded" action', () => {
-    testedStore.dispatch(pointsAdded(10));
+  it('adds entry on "streakUpdated" action', () => {
+    testedStore.dispatch(streakUpdated(2));
 
-    const pointsSliceData = testedStore.getState().points;
-    expect(pointsSliceData).toEqual({
-      ...pointsSliceData,
-      points: 10,
+    const streakSliceData = testedStore.getState().streak;
+    expect(streakSliceData).toEqual({
+      ...streakSliceData,
+      streak: 2,
     });
   });
 });

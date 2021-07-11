@@ -14,8 +14,9 @@
     ],
     "_id": "60cf85dc88b97300074eeb19",
     "topic": { "_id": "60ccd30494d2665a84d17696", "name": "topic 1", "level": "easy" },
-    "date": "2021-06-20T18:15:54.679Z",
+    "date": "2021-06-18T18:15:54.679Z",
     "pointsGained": 10,
+    "streak": 1,
     "userId": "60ccd0b15aac7d251c53ab00",
     "__v": 0
   },
@@ -34,8 +35,9 @@
     ],
     "_id": "60cf85e488b97300074eeb1c",
     "topic": { "_id": "60ccd2ee94d2665a84d17695", "name": "topic 2", "level": "normal" },
-    "date": "2021-06-20T18:16:04.435Z",
-    "pointsGained": 20,
+    "date": "2021-06-19T18:16:04.435Z",
+    "pointsGained": 40,
+    "streak": 2,
     "userId": "60ccd0b15aac7d251c53ab00",
     "__v": 0
   },
@@ -55,7 +57,8 @@
     "_id": "60cf85fc80f4f8000920e3be",
     "topic": { "_id": "60ccd2cf94d2665a84d17694", "name": "topic 3", "level": "hard" },
     "date": "2021-06-20T18:16:28.306Z",
-    "pointsGained": 30,
+    "pointsGained": 90,
+    "streak": 3,
     "userId": "60ccd0b15aac7d251c53ab00",
     "__v": 0
   }
