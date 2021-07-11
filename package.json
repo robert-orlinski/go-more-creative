@@ -35,6 +35,7 @@
     "babel-jest": "^27.0.2",
     "eslint": "^7.30.0",
     "eslint-config-next": "^11.0.1",
+    "eslint-plugin-unused-imports": "^1.1.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.4",
     "jest-fetch-mock": "^3.0.3",

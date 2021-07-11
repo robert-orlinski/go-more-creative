@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { FetchedEntryType } from '../../types/global';
 import { StreakType } from '../types';
 import { fetchEntries } from '../entriesSlice';
 

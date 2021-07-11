@@ -10,7 +10,7 @@ export interface LinkType extends ClassNameType {
 }
 
 export interface ButtonType extends ClassNameType, TestIdType {
-  onClick?: (event: any) => void;
+  onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
   tabIndex?: number;
 }
