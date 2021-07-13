@@ -20,9 +20,9 @@ const Start = () => {
             </MainWrapper>
           ) : (
             <MainWrapper theme="center">
-              <MainTitle>gamified app that trains your creativity</MainTitle>
+              <MainTitle>become an idea machine by writing 10 ideas a day 🔥</MainTitle>
               <p className="textCenter marginBottomL">
-                you can log in and start to fulfilling 10 ideas for various topics - every day!
+                here you can find dozens of topics that are waiting for you, make ideas related to them and train your creativity. more on this system in the famous <a href="https://jamesaltucher.com/blog/the-ultimate-guide-for-becoming-an-idea-machine/" target="_blank" rel="noreferrer">James Altucher's blog post</a>
               </p>
               <ClassicButton onClick={() => signIn()}>sign me in!</ClassicButton>
             </MainWrapper>
