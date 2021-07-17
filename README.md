@@ -68,9 +68,10 @@ Front-End:
 
 ## What's next?
 
-1. Cover crucial functionalities with tests.
-2. Add engaging streak and rewrite points algorithm to the one based on topic levels and streak ether.
-3. Add functions that let people add their topics and choose if they want to have it only for themself or share it with the whole community.
+1. Add some UX improvements. For instance, loading animations on points and strike change, all DB errors handling.
+2. Provide functions that let people add their topics and choose if they want to have it only for themself or share it with the whole community.
+3. Replace NextAuth with something else. NextAuth can be really slow :c
+4. Add Polish version.
 
 And that's it for now. Maybe you have some ideas for new features? If yes, you can always propose them in the [issues](https://github.com/robert-orlinski/go-more-creative/issues) tab 😌
 
