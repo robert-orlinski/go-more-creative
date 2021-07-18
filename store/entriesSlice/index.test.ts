@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import fetch from 'jest-fetch-mock';
 
-import mockedEntriesArray from '../../__mocks__/entries/multiple.json';
+import mockedEntries from '../../__mocks__/entries/initial.json';
 import mockedEntry from '../../__mocks__/entries/single.json';
 
 import { initialState, entryAdded, fetchEntries, statusMessages } from '.';
@@ -26,14 +26,14 @@ describe('initial state', () => {
 
 describe('thunks', () => {
   it('adds entries to the store on successful thunk resolve and displays proper message', async () => {
-    fetch.mockResponse(JSON.stringify(mockedEntriesArray));
+    fetch.mockResponse(JSON.stringify(mockedEntries));
 
     await testedStore.dispatch(fetchEntries());
 
     const entriesSliceData = testedStore.getState().entries;
 
     expect(entriesSliceData).toEqual({
-      list: mockedEntriesArray,
+      list: mockedEntries,
       statusMessage: statusMessages.fulfilled,
     });
   });
@@ -49,12 +49,12 @@ describe('extra reducers', () => {
   });
 
   it('returns initial state with fullfiled message when fullfiled extra reducer is at work', async () => {
-    await testedStore.dispatch({ type: fetchEntries.fulfilled.type, payload: mockedEntriesArray });
+    await testedStore.dispatch({ type: fetchEntries.fulfilled.type, payload: mockedEntries });
 
     const entriesSliceData = testedStore.getState().entries;
 
     expect(entriesSliceData).toEqual({
-      list: mockedEntriesArray,
+      list: mockedEntries,
       statusMessage: statusMessages.fulfilled,
     });
   });

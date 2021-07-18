@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import fetch from 'jest-fetch-mock';
 
-import mockedTopicsArray from '../../__mocks__/topics/multiple.json';
+import mockedTopics from '../../__mocks__/topics/initial.json';
 import mockedTopic from '../../__mocks__/topics/single.json';
 
 import * as helperFunctions from '../../helpers/functions';
@@ -29,15 +29,15 @@ describe('initial state', () => {
 
 describe('thunks', () => {
   it('adds topics to the store on successful thunk resolve and displays proper message', async () => {
-    fetch.mockResponse(JSON.stringify(mockedTopicsArray));
+    fetch.mockResponse(JSON.stringify(mockedTopics));
 
     await testedStore.dispatch(fetchTopics());
 
     const topicsSliceData = testedStore.getState().topics;
 
     expect(topicsSliceData).toEqual({
-      list: mockedTopicsArray,
-      currentTopic: mockedTopic,
+      list: mockedTopics.list,
+      currentTopic: mockedTopics.firstTopic,
       statusMessage: statusMessages.fulfilled,
     });
   });
@@ -53,13 +53,13 @@ describe('extra reducers', () => {
   });
 
   it('returns initial state with fullfiled message when fullfiled extra reducer is at work', async () => {
-    await testedStore.dispatch({ type: fetchTopics.fulfilled.type, payload: mockedTopicsArray });
+    await testedStore.dispatch({ type: fetchTopics.fulfilled.type, payload: mockedTopics });
 
     const topicsSliceData = testedStore.getState().topics;
 
     expect(topicsSliceData).toEqual({
-      list: mockedTopicsArray,
-      currentTopic: mockedTopic,
+      list: mockedTopics.list,
+      currentTopic: mockedTopics.firstTopic,
       statusMessage: statusMessages.fulfilled,
     });
   });

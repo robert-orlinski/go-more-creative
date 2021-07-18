@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import fetch from 'jest-fetch-mock';
 
-import mockedEntriesArray from '../../__mocks__/entries/multiple.json';
+import mockedEntriesArray from '../../__mocks__/entries/initial.json';
 import singleMockedEntry from '../../__mocks__/entries/single.json';
 
 import dates from '../../helpers/dates';

@@ -43,9 +43,9 @@ const slice = createSlice({
         ...state,
         statusMessage: statusMessages.pending,
       }))
-      .addCase(fetchTopics.fulfilled, (state, { payload }) => ({
-        list: payload.list,
-        currentTopic: payload.firstTopic,
+      .addCase(fetchTopics.fulfilled, (state, { payload: { list, firstTopic } }) => ({
+        list: list,
+        currentTopic: firstTopic,
         statusMessage: statusMessages.fulfilled,
       }))
       .addCase(fetchTopics.rejected, (state) => ({
