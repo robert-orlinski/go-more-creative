@@ -2,7 +2,9 @@ import { configureStore } from '@reduxjs/toolkit';
 import fetch from 'jest-fetch-mock';
 
 import mockedEntriesArray from '../../__mocks__/entries/multiple.json';
+import singleMockedEntry from '../../__mocks__/entries/single.json';
 
+import dates from '../../helpers/dates';
 import { initialState, streakUpdated, statusMessages } from '../streakSlice';
 import { fetchEntries } from '../entriesSlice';
 
@@ -12,6 +14,7 @@ let testedStore: any;
 
 beforeEach(() => {
   testedStore = configureStore({ reducer });
+  jest.resetModules();
 });
 
 describe('initial state', () => {
@@ -46,7 +49,7 @@ describe('extra reducers', () => {
     expect(streakSliceData).toEqual(initialState);
   });
 
-  it('returns initial state with fullfiled message when fullfiled extra reducer is at work', async () => {
+  it('returns initial state with fulfilled message when fulfilled extra reducer is at work', async () => {
     await testedStore.dispatch({ type: fetchEntries.fulfilled.type, payload: mockedEntriesArray });
 
     const streakSliceData = testedStore.getState().streak;
@@ -57,9 +60,9 @@ describe('extra reducers', () => {
     });
   });
 
-  it('returns 0 with fullfiled message when there is no entries', async () => {
+  it('returns 0 with fulfilled message when there is no entries', async () => {
     await testedStore.dispatch({
-      type: fetchEntries.rejected.type,
+      type: fetchEntries.fulfilled.type,
       payload: [],
     });
 
@@ -67,7 +70,28 @@ describe('extra reducers', () => {
 
     expect(streakSliceData).toEqual({
       streak: 0,
-      statusMessage: statusMessages.rejected,
+      statusMessage: statusMessages.fulfilled,
+    });
+  });
+
+  it('returns 0 with fulfilled message when last entry is older than yesterday', async () => {
+    jest.spyOn(dates, 'yesterday', 'get').mockReturnValueOnce(16);
+
+    await testedStore.dispatch({
+      type: fetchEntries.fulfilled.type,
+      payload: [
+        {
+          ...singleMockedEntry,
+          date: '2021-06-15T18:15:54.679Z',
+        },
+      ],
+    });
+
+    const streakSliceData = testedStore.getState().streak;
+
+    expect(streakSliceData).toEqual({
+      streak: 0,
+      statusMessage: statusMessages.fulfilled,
     });
   });
 

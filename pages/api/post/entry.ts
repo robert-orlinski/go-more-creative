@@ -6,6 +6,7 @@ import { Entry } from '../../../helpers/api/Models/Entry';
 
 import { withDatabase } from '../../../helpers/api/withDatabase';
 import { withRequestMethod } from '../../../helpers/api/withRequestMethod';
+import dates from '../../../helpers/dates';
 
 import { EntryType } from '../../../types/global';
 
@@ -16,11 +17,9 @@ const getStreakToAdd = async (userId: string) => {
 
   if (lastEntry) {
     const lastEntryDateDay = new Date(lastEntry.date).getDate();
-    const today = new Date().getDate();
-    const yesterday = today - 1;
 
-    const isLastEntryToday = lastEntryDateDay === today;
-    const isLastEntryYesterday = lastEntryDateDay === yesterday;
+    const isLastEntryToday = lastEntryDateDay === dates.today;
+    const isLastEntryYesterday = lastEntryDateDay === dates.yesterday;
 
     if (isLastEntryToday) {
       return lastEntry.streak;
