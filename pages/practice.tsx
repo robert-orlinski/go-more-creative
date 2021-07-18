@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { Layout } from '../components/Layout';
 import { AuthGuard } from '../components/AuthGuard';
 import { MainWrapper } from '../components/MainWrapper';
+import { MainTitle } from '../components/MainTitle';
 import { Form } from '../components/Form';
 
 import { StoreType } from '../store/types';
@@ -15,7 +16,7 @@ const Practice = () => {
       <AuthGuard>
         <MainWrapper theme="center">
           <p className="marginBottomS">10 ideas for:</p>
-          {/* <MainTitle>{topicName}</MainTitle> */}
+          <MainTitle>{topicName}</MainTitle>
           <Form />
         </MainWrapper>
       </AuthGuard>
