@@ -14,7 +14,9 @@ let testedStore: any;
 beforeEach(() => {
   testedStore = configureStore({ reducer });
 
-  jest.spyOn(helperFunctions, 'getRandomItemFromArray').mockReturnValueOnce(mockedTopic);
+  jest
+    .spyOn(helperFunctions, 'getRandomItemFromArrayOrNullIfThereIsNoItems')
+    .mockReturnValueOnce(mockedTopic);
 });
 
 describe('initial state', () => {

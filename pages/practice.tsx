@@ -9,15 +9,24 @@ import { Form } from '../components/Form';
 import { StoreType } from '../store/types';
 
 const Practice = () => {
-  const { name: topicName } = useSelector((state: StoreType) => state.topics.currentTopic);
+  const currentTopic = useSelector((state: StoreType) => state.topics.currentTopic);
 
   return (
     <Layout pageName="practice 🔥">
       <AuthGuard>
         <MainWrapper theme="center">
-          <p className="marginBottomS">10 ideas for:</p>
-          <MainTitle>{topicName}</MainTitle>
-          <Form />
+          {currentTopic ? (
+            <>
+              <p className="marginBottomS">10 ideas for:</p>
+              <MainTitle>{currentTopic.name}</MainTitle>
+              <Form />
+            </>
+          ) : (
+            <MainTitle className="errorFontColor">
+              ahhhh! something went wrong :c there is ether database connection problem or there are
+              simply no topics
+            </MainTitle>
+          )}
         </MainWrapper>
       </AuthGuard>
     </Layout>

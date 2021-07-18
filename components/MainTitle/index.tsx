@@ -2,6 +2,8 @@ import { FC } from 'react';
 import classNames from 'classnames';
 import styles from './MainTitle.module.scss';
 
-export const MainTitle: FC = ({ children }) => (
-  <h2 className={classNames('textCenter', styles.title)}>{children}</h2>
+import { ClassNameType } from '../Button/types';
+
+export const MainTitle: FC<ClassNameType> = ({ children, className }) => (
+  <h2 className={classNames('textCenter', styles.title, className)}>{children}</h2>
 );

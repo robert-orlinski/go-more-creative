@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { getTopicsFromApi } from '../../utils/requests';
 
-import { getRandomItemFromArray } from '../../helpers/functions';
+import { getRandomItemFromArrayOrNullIfThereIsNoItems } from '../../helpers/functions';
 import { TopicsType } from '../types';
 
 export const statusMessages = {
@@ -34,7 +34,7 @@ const slice = createSlice({
   reducers: {
     selectedRandomTopic: (state) => ({
       ...state,
-      currentTopic: getRandomItemFromArray(state.list),
+      currentTopic: getRandomItemFromArrayOrNullIfThereIsNoItems(state.list),
     }),
   },
   extraReducers: (builder) =>
@@ -45,7 +45,7 @@ const slice = createSlice({
       }))
       .addCase(fetchTopics.fulfilled, (state, { payload }) => ({
         list: payload,
-        currentTopic: getRandomItemFromArray(payload),
+        currentTopic: getRandomItemFromArrayOrNullIfThereIsNoItems(payload),
         statusMessage: statusMessages.fulfilled,
       }))
       .addCase(fetchTopics.rejected, (state) => ({

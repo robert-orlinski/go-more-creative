@@ -1,23 +1,26 @@
 import { FetchedEntryType, TopicType } from '../types/global';
 
-export interface statusMessageType {
+export interface StatusMessageType {
   statusMessage: string | undefined;
 }
 
-export interface EntriesType extends statusMessageType {
-  list: FetchedEntryType[];
-}
-
-export interface TopicsType extends statusMessageType {
-  list: TopicType[];
+export interface CurrentTopicType {
   currentTopic: TopicType;
 }
 
-export interface PointsType extends statusMessageType {
+export interface EntriesType extends StatusMessageType {
+  list: FetchedEntryType[];
+}
+
+export interface TopicsType extends CurrentTopicType, StatusMessageType {
+  list: TopicType[];
+}
+
+export interface PointsType extends StatusMessageType {
   points: number;
 }
 
-export interface StreakType extends statusMessageType {
+export interface StreakType extends StatusMessageType {
   streak: number;
 }
 

@@ -1,2 +1,2 @@
-export const getRandomItemFromArray = (array: any[]) =>
-  array[Math.floor(Math.random() * array.length)];
+export const getRandomItemFromArrayOrNullIfThereIsNoItems = (array: any[]) =>
+  array.length ? array[Math.floor(Math.random() * array.length)] : null;

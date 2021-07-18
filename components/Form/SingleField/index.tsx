@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { FC, KeyboardEvent } from 'react';
 
 import { FormFieldType } from '../../../types/global';
@@ -30,12 +31,12 @@ export const SingleField: FC<FormFieldType> = ({ id, label, register, errors, go
         onKeyDown={(event) => goToNextFieldOnEnter(event)}
       />
       {errors[name] && (
-        <p role="alert" className={styles.error}>
+        <p role="alert" className={classNames(styles.error, 'errorFontColor')}>
           you need to write down this idea 🚀
         </p>
       )}
       {errors.form && (
-        <p role="alert" className={styles.error}>
+        <p role="alert" className={classNames(styles.error, 'errorFontColor')}>
           {errors.form.message}
         </p>
       )}
