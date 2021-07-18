@@ -57,6 +57,20 @@ describe('extra reducers', () => {
     });
   });
 
+  it('returns 0 with fullfiled message when there is no entries', async () => {
+    await testedStore.dispatch({
+      type: fetchEntries.rejected.type,
+      payload: [],
+    });
+
+    const streakSliceData = testedStore.getState().streak;
+
+    expect(streakSliceData).toEqual({
+      streak: 0,
+      statusMessage: statusMessages.rejected,
+    });
+  });
+
   it('returns initial state with rejected message when rejected extra reducer is at work', async () => {
     await testedStore.dispatch({ type: fetchEntries.rejected.type });
 

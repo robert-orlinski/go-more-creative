@@ -30,7 +30,7 @@ const slice = createSlice({
         statusMessage: statusMessages.pending,
       }))
       .addCase(fetchEntries.fulfilled, (state, { payload }) => ({
-        streak: payload[payload.length - 1].streak,
+        streak: payload.length ? payload[payload.length - 1].streak : 0,
         statusMessage: statusMessages.fulfilled,
       }))
       .addCase(fetchEntries.rejected, (state) => ({
