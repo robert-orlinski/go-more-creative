@@ -15,10 +15,8 @@ const Practice = () => {
     <Layout pageName="practice 🔥">
       <AuthGuard>
         <MainWrapper theme="center">
-          <MainTitle>
-            tell me your 10 ideas for&nbsp;
-            <span className="highlight">{topicName}</span>
-          </MainTitle>
+          <p className="marginBottomS">10 ideas for:</p>
+          <MainTitle>{topicName}</MainTitle>
           <Form />
         </MainWrapper>
       </AuthGuard>
