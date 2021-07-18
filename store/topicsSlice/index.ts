@@ -32,7 +32,7 @@ const slice = createSlice({
   name: 'topics',
   initialState,
   reducers: {
-    selectedRandomTopic: (state) => ({
+    randomTopicSelected: (state) => ({
       ...state,
       currentTopic: getRandomItemFromArrayOrNullIfThereIsNoItems(state.list),
     }),
@@ -44,8 +44,8 @@ const slice = createSlice({
         statusMessage: statusMessages.pending,
       }))
       .addCase(fetchTopics.fulfilled, (state, { payload }) => ({
-        list: payload,
-        currentTopic: getRandomItemFromArrayOrNullIfThereIsNoItems(payload),
+        list: payload.list,
+        currentTopic: payload.firstTopic,
         statusMessage: statusMessages.fulfilled,
       }))
       .addCase(fetchTopics.rejected, (state) => ({
@@ -54,6 +54,6 @@ const slice = createSlice({
       })),
 });
 
-export const { selectedRandomTopic } = slice.actions;
+export const { randomTopicSelected } = slice.actions;
 
 export default slice.reducer;

@@ -8,7 +8,7 @@ import { EntryTypeToAdd, FetchedEntryType } from '../types/global';
 import { entryAdded } from '../store/entriesSlice';
 import { pointsAdded } from '../store/pointsSlice';
 import { streakUpdated } from '../store/streakSlice';
-import { selectedRandomTopic } from '../store/topicsSlice';
+import { randomTopicSelected } from '../store/topicsSlice';
 
 export const addEntry =
   (data: EntryTypeToAdd, setError: UseFormSetError<FieldValues>) =>
@@ -23,7 +23,7 @@ export const addEntry =
       dispatch(entryAdded(savedEntry));
       dispatch(pointsAdded(pointsGained));
       dispatch(streakUpdated(streak));
-      dispatch(selectedRandomTopic());
+      dispatch(randomTopicSelected());
     } else {
       const errorMessage = await saveEntry.text();
 
